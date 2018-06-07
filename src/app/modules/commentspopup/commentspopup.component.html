@@ -1,0 +1,89 @@
+<p class="comment-popup" [ngClass]="{'hide-header': commentsAttributes.hideHeader}" >
+    <p-dialog header="Comments" class="ui-widget-content" [(visible)]="commentsToggler" [responsive]="true" [modal]="true" (onHide)="hide($event)"  styleClass="dialog-class">
+        <p-tabView class="head-style" (onChange)="onTabChange()">
+            <p-tabPanel class="header-nav" *ngFor="let tab of commentsAttributes.tabConfig;  " header="{{ tab.tabDisplayName}}">
+                <div class="marketDropdown" *ngIf="commentsAttributes.showMarkets">
+                    <span>
+                        <strong class="dropdow-text">Market</strong>
+                    </span>
+                    <p-dropdown [options]="cities" [(ngModel)]="selectedCity" placeholder="{{selectedCity}}" optionLabel="name"></p-dropdown>
+                </div>
+                <div class="comments-container">
+                    <table id="tblComments" width=100%>
+                        <tbody *ngFor="let comment of externalComment">
+                            <tr>
+                                <td width="8%"rowspan=2>
+                                    <div class="circle-green">
+                                        <span class="circle-content">{{comment.initials}}</span>
+                                    </div>
+                                </td>
+                                <td width="300px" class="username-class"> {{comment.author}}</td>
+                                <td class="username-class" align="right"> {{comment.updatedTime}}</td>
+                            </tr>
+                            <tr>
+                                <td id="myP" colspan=2 *ngIf="!contenteditable" class="edit-class" bgcolor="#E6E6E6"> {{comment.note}} </td>
+                                <td id="myP" colspan=2 *ngIf="contenteditable" contenteditable='true' class="edit-class" bgcolor="#FFFFFF"> {{comment.description}} </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td *ngIf="!saveEnable">
+
+                                    <button *ngIf="tab.canEdit" class="custom edit-delete-reply" pButton type="button" label="Edit" (click)="onEdit()"></button>
+                                    <button *ngIf="tab.canDelete" class="custom edit-delete-reply" pButton type="button" label="Delete" (click)="onDelete(comment.initials)"></button>
+                                    <!-- <button *ngIf="tab.canReply" class="custom edit-delete-reply" pButton type="button" label="Reply" (click)="onReply()"></button> -->
+                                </td>
+                                <td *ngIf="saveEnable">
+                                    <button class="custom edit-delete-reply" pButton type="button" label="Save" (click)="onSave()"></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="reply-description" *ngIf = "tab.canReply == true">
+                        <div class="each-reply" *ngFor="let reply of replys">
+                            {{reply}}
+                        </div>
+                    </div>
+                    <div class="reply-class">
+                        <button *ngIf="tab.canReply && enableReply" class="custom" pButton type="button" label="Reply" (click)="onReply()"></button>
+                    </div>
+                    <div *ngIf="addingCommentDescriptionUsername" class="comment-description">
+                        <table id="tblComments">
+                            <tbody *ngFor="let comment of externalComment">
+                                <tr>
+                                    <td width="8%"rowspan=2>
+                                        <div class="circle-green">
+                                            <span class="circle-content">{{comment.initials}}</span>
+                                        </div>
+                                    </td>
+                                    <td width="300px" class="username-class"> {{comment.userName}}</td>
+                                    <td class="username-class" align="right"> {{comment.date}}</td>
+                                </tr>
+                                <tr *ngFor="let comment of comments">
+                                    <td id="myP" colspan=2 class="edit-class" bgcolor="#E6E6E6"> {{comment}} </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>      
+                    <div *ngIf="enableAddReply" class="edit-delete-reply">
+                        <textarea ref-textarea [(ngModel)]="textValue" maxlength="256" class="reply-description" [rows]="1" [cols]="30"></textarea>
+                        <div class="addReplyBtn" align="right">
+                            <button type="button" pButton label="Add Reply" (click)="addReply(textarea.value)"></button>
+                            <button type="button" pButton label="Cancel" (click)="onCancelReply()"></button>
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngIf="tab.canAdd || addExternalComment" class="add-comment">
+                    <br>
+                    <div align="right">
+                        <textarea ref-textarea [(ngModel)]="commentValue" maxlength="256" class="comment-class" rows="2" cols="30" placeholder="Add a comment..."></textarea>
+                    </div>
+                    <div align="right">
+                        <button type="button" pButton label="Add {{tab.tabDisplayName}} Comment" (click)="addCommentDescription(textarea.value)"></button>
+                    </div>
+                </ng-container>
+            </p-tabPanel>
+        </p-tabView>
+    </p-dialog>
+</p>

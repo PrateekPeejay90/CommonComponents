@@ -1,0 +1,40 @@
+.filterpanel .attrpos{
+	position: relative;
+}
+
+.link{
+	cursor:pointer;
+}
+
+.active{
+	color: blue;
+}
+
+.inactive{
+	color: #999999;
+}
+
+.searchattribute {
+	position:relative;
+	padding-top:25px;
+	padding-bottom:25px;
+}
+
+.searchattribute .ui-inputtext {
+	width: 100%;
+}
+
+.filterpanel .item-close{
+	display: inline-block;
+	z-index: 100;
+	position: absolute;
+	cursor: pointer;
+	width: 12px;
+    height: 12px;
+    top: 23px;
+    right: 22px;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=85)";
+    opacity: 0.85;
+    font: 12px/1 FontAwesome;
+    color: #919191;
+}

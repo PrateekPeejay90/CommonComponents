@@ -1,0 +1,16 @@
+body
+{
+    background-color: #fff;
+    font-size: 12px;
+    color: #707070;
+    line-height: 1.2em;
+    weight: 400;
+}
+
+.ui-treetable tfoot td{
+	border-width: 0px;
+	text-align: left;
+}
+
+
+

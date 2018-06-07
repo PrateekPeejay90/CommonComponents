@@ -1,0 +1,83 @@
+<div class="filterpanel">
+	<div style="width:100%;" [ngClass]="{link:hasSelectedVal>0,active:hasSelectedVal>0,inactive:hasSelectedVal===0}">
+		<span (click)="clearAll($event)">Clear All Filters</span>
+	</div>
+
+	<div class="searchattribute" *ngIf="showSearchFilter">
+		<input type="text" pInputText placeholder="Search for Filtering Criteria" (input)="onFilter($event)"/>
+		<div [style.visibility]="showCloseAll()" [style.top.px]="32" (click)="onCloseAllClick($event)" class="item-close" ></div>
+	</div>
+	
+	<ng-container *ngFor="let grp of attributeGroups;index as idx">
+		<div [style.display]="(searchedAttribute.trim() === '' || showGroup(grp)) ? 'inline-block' : 'none'" style="margin-top:10px;">
+			<span style="font-weight:500">{{grp ==='undefined' ? 'OTHER' : grp | uppercase }}</span>
+			<ng-container *ngFor="let attribute of groupedFilterAttributes[idx];">
+				<div class="ui-g-12 attrpos" [style.display]="isItemVisible(attribute) ? 'inline-block' : 'none'" *ngIf="(attribute.groupName && attribute.groupName.toLowerCase() === grp.toLowerCase()) || grp.toLowerCase() === 'undefined'">
+					<ng-container [ngSwitch]="attribute.dataType">
+						<div class="ui-g-12" *ngSwitchCase="'date'">
+							<ng-container *ngIf="attribute.selectionMode === 'single'; else multicaltmp">
+								<p-calendar [showIcon]="true" selectionMode="single" (onSelect)="onDateSelect($event,'single',attribute.attributeName)" #singlecal></p-calendar>				
+							</ng-container>
+							<ng-template #multicaltmp>
+								<p-calendar [showIcon]="true" selectionMode="multiple" (onSelect)="onDateSelect($event,'multiple',attribute.attributeName)" #multical></p-calendar>
+							</ng-template>
+						</div>
+						<div class="ui-g-12" *ngSwitchCase="'bcdaterange'" >
+							<broadcast-calendar appendTo="body" [isSingleSelect]="attribute.isSingleSelect" [showAsRange]=attribute.showAsRange placeHolderText="{{attribute.displayName}}" minDate="{{attribute.minDate}}" maxDate="{{attribute.maxDate}}" previousDateLimit="{{attribute.previousDateLimit}}" 
+							fieldName="{{attribute.fieldName || attribute.attributeName}}"
+							(change)="onBCDaterangeChange($event,attribute.attributeName)" (flightDtChange)="onBCDaterangeChange($event,attribute.attributeName)" (onDirtySelect)="onBCDaterangeChange($event,attribute.attributeName)"></broadcast-calendar>
+						</div>
+						<div class="ui-g-12" *ngSwitchCase="'daterange'" >
+							<button pButton type="button" (click)="showDateRangePanel=true" label="{{attribute.displayName}}" #daterangebtn></button>
+							<ng-container *ngIf="showDateRangePanel">
+								<app-effectivedates [attribute]="attribute" [display]="showDateRangePanel" (onPanelHide)="onDateRangePanelHide($event,attribute.displayName)" ></app-effectivedates>
+							</ng-container>
+						</div>
+						<div class="ui-g-12" *ngSwitchCase="'daystimes'">
+							<p-button label="{{attribute.displayName}}" (onClick)="showDaysTimesPanel=true"></p-button>
+						</div>
+						<div class="ui-g-12" *ngSwitchCase="'text'">
+							<app-input [attribute]="attribute" (onTextChange)="onTextChange($event)"></app-input>
+						</div>
+						<div class="ui-g-12" *ngSwitchCase="'dropdown'">
+							<app-singleselect [filterAttribute]="attribute" (selChange)="onSingleSelectChange($event,attribute.attributeName)"></app-singleselect>
+						</div>
+						<div class="ui-g-12" *ngSwitchCase="'checkbox'">
+							<app-checkbox [attribute]="attribute" [checked]="attribute.checked" (checkBoxChange)="onCheckBoxChange($event)"></app-checkbox>
+						</div>
+						<div class="ui-g-12" *ngSwitchCase="'button'">
+							<app-button  [attribute]="attribute" (buttonClick)="onBtnClick($event,attribute.attributeName)"  id="{{panelId}}_{{attribute.attributeName}}" #button></app-button>						
+						</div>
+						<div class="ui-g-12" *ngSwitchCase="'daysAndTimes'">
+							<app-daysandtimes [filterAttribute]="attribute" [mandatory]="attribute.mandatory" [multiSelect]="attribute.multiSelect"
+							[displayName]="attribute.displayName" [attributeName]="attribute.attributeName" 
+							(optionChanged)="attribute.optionChanged? attribute.optionChanged($event) : onDaysAndTimesOptionChanged($event)" id="{{panelId}}_{{attribute.attributeName}}" #daysandtimescombo ></app-daysandtimes>
+						</div>			
+						<div class="ui-g-12" *ngSwitchCase="'days'">
+							<app-days-combobox [name]="attribute.attributeName" [ngModel]="attribute.value" [filterAttribute]="attribute" [showTooltip]="attribute.showTooltip" [mandatory]="attribute.mandatory" 
+							[displayName]="attribute.displayName" [dropdownPlaceholder]="''" [attributeName]="attribute.attributeName" 
+							(optionChanged)="attribute.optionChanged? attribute.optionChanged($event) : onDaysOptionChanged($event)" 
+							(dropdownMenuBlur)="onDaysOptionChanged($event)"></app-days-combobox>
+						</div>							
+						<div class="ui-g-12" *ngSwitchCase="'time'">
+							<app-timepicker [name]="attribute.attributeName" [ngModel]="attribute.value" [filterAttribute]="attribute" [mandatory]="attribute.mandatory" [placeholder]="attribute.displayName" 
+							[displayName]="attribute.displayName" [attributeName]="attribute.attributeName" 
+							(optionChanged)="attribute.optionChanged? attribute.optionChanged($event) : onTimeOptionChanged($event)"></app-timepicker>
+						</div>
+						<div class="ui-g-12  filterField " *ngSwitchCase="'index'">
+							<app-index-field [attribute] ="attribute" [placeholder]="attribute.displayName" (onIndexInputChange)="onIndexInputChange($event)"></app-index-field>
+						 </div>							
+						<div class="ui-g-12" style="padding-bottom:1.5em;" *ngSwitchDefault>
+							<ra-combobox [virtualScroll]="attribute.virtualScroll" [allowNewOptions]="false" [options]="attribute.dataArray" [searchboxPlaceholder]="'Search for {attributeName}'" [dropdownPlaceholder]="'{attributeName}'"
+								[dropdownCountPlaceholder]="'({count})'" [mandatory]="attribute.isMandatory" [optionMeta]="attribute.optionMeta" [filterAttribute]="attribute" [disabled]="attribute.disabled" [manualLoad]="attribute.manualLoad"
+								(dropdownMenuBlur)="onMultiBlur($event)" (optionChanged)="attribute.optionChanged? attribute.optionChanged($event) : onOptionChanged($event)" id="{{panelId}}_{{attribute.attributeName}}" #combobox>
+							</ra-combobox>
+						</div>
+					</ng-container>
+				</div>
+			</ng-container>
+		</div>
+	</ng-container>
+	
+	
+</div>

@@ -1,0 +1,13 @@
+<p-dropdown [ngClass]="{'mandatory': filterAttribute.isMandatory,'ddStyle':true, 'selected':valSelected}" [disabled]="filterAttribute.disabled"  #singleSelectItem [panelStyle]="" 
+   positionStyle="" [filter]="filterAttribute.filter" [placeholder]="filterAttribute.displayName" (onBlur)="onSingleSelectBlur($event)" (onChange)="onSingleselectChange($event)" [editable]="filterAttribute.editable"
+   [filter]="true" [resetFilterOnHide]="true" [options]="filterAttribute.dataArray" showClear="true" [(ngModel)]="selectedItem" (onChange)="onChange($event)" [required]="filterAttribute.isMandatory">
+   <ng-template let-val let-i="index" pTemplate="item">
+       <div #ele id="ele_{{val.value}}"  style="display:inline-block">{{ val.label }}</div>
+   </ng-template>
+   <ng-template let-val pTemplate="selectedItem">
+   	   <span>{{filterAttribute.displayName}} </span><span style="color:grey;">(1)</span>
+   </ng-template>
+</p-dropdown>
+
+
+

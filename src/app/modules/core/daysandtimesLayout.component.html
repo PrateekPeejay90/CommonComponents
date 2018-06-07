@@ -1,0 +1,56 @@
+<form *ngFor="let item of filterAttribute; let itemIdx=index">
+    <div class="ui-g ui-fluid">
+        <div class="ui-g-12 ui-md-5" style="padding:0px; display: flex; width: 35%;">
+            <div class="ui-g-12 ui-md-1" style="margin-bottom: auto; margin-top: auto; width: auto;">
+                <i class="fa fa-calendar fa-lg"></i>
+            </div>
+            <div class="ui-g-12 ui-md-10" style="padding-left: 0px;padding-right: 0px;">
+                <app-days-combobox [name]="item.daysAttribute.attributeName" [(ngModel)]="daysValue[itemIdx]" [filterAttribute]="item.daysAttribute" 
+                [showTooltip]="item.daysAttribute.showTooltip" [mandatory]="item.daysAttribute.mandatory" 
+                [displayName]="item.daysAttribute.displayName" [dropdownPlaceholder]="''" 
+                [attributeName]="item.daysAttribute.attributeName" 
+                [tabindex]="item.daysAttribute.tabindex"
+                (optionChanged)="item.daysAttribute.optionChanged? item.daysAttribute.optionChanged($event, itemIdx) : onDaysOptionChanged($event, itemIdx)"
+                (dropdownMenuBlur)="onDaysOptionChanged($event, itemIdx)"></app-days-combobox>
+            </div>
+            <div class="ui-g-12 ui-md-1" style="margin-bottom: auto; margin-top: auto; width: auto;">
+            </div>
+        </div>
+        <div class="ui-g-12 ui-md-7" style="padding:0px; display: flex; width: 65%;">
+            <div class="ui-g-12 ui-md-1" style="margin-bottom: auto; margin-top: auto; width: auto;">
+                <i class="fa fa-clock-o fa-lg"></i>
+            </div>
+            <div class="ui-g-12 ui-md-5" style="padding-left: 0px; padding-right: 0px;">
+                <app-timepicker [name]="item.startTimeAttribute.attributeName" 
+                [(ngModel)]="startTimeValue[itemIdx]" min="06:00 AM" max="06:00 AM" from="startTime" [filterAttribute]="item.startTimeAttribute" 
+                [mandatory]="item.startTimeAttribute.mandatory" [placeholder]="item.startTimeAttribute.displayName" 
+                [displayName]="item.startTimeAttribute.displayName" [attributeName]="item.startTimeAttribute.attributeName" 
+                [tabindex]="item.startTimeAttribute.tabindex"
+                (optionChanged)="item.startTimeAttribute.optionChanged? item.startTimeAttribute.optionChanged($event, itemIdx) : onTimeSelect($event, itemIdx)"></app-timepicker>
+            </div>
+            <div class="ui-g-12 ui-md-1" style="margin-bottom: auto; margin-top: auto; width: auto;">
+                <span class="fa fa-lg">to</span>
+            </div>
+            <div class="ui-g-12 ui-md-5" style="padding-left: 0px; padding-right: 0px;">
+                <app-timepicker [name]="item.endTimeAttribute.attributeName" 
+                [(ngModel)]="endTimeValue[itemIdx]" from="endTime" [filterAttribute]="item.endTimeAttribute" 
+                [mandatory]="item.endTimeAttribute.mandatory" [placeholder]="item.endTimeAttribute.displayName" 
+                [displayName]="item.endTimeAttribute.displayName" [attributeName]="item.endTimeAttribute.attributeName" 
+                [tabindex]="item.endTimeAttribute.tabindex"
+                (optionChanged)="item.endTimeAttribute.optionChanged? item.endTimeAttribute.optionChanged($event, itemIdx) : onTimeSelect($event, itemIdx)"></app-timepicker>
+            </div>
+            <div class="ui-g-12 ui-md-1" style="margin-bottom: auto; margin-top: auto; width: auto; cursor:pointer;">
+                <i class="fa fas far fa-eraser fa-lg" title="Clear values" (click)="onClearClick(itemIdx)"></i>
+            </div>
+            <div *ngIf="multiSelect && filterAttribute.length > 1" class="ui-g-12 ui-md-1" style="margin-bottom: auto; margin-top: auto; width: auto; cursor:pointer;">
+                <i class="fa fas fa-minus-circle fa-lg" style="color:red" title="Remove rotation" (click)="onRemoveItemClick(itemIdx)"></i>
+            </div>
+            <div *ngIf="multiSelect" class="ui-g-12 ui-md-1" style="margin-bottom: auto; margin-top: auto; width: auto; cursor:pointer;">
+                <i class="fa fas fa-plus-circle fa-lg" style="color:green" title="Add rotation" (click)="onAddItemClick(itemIdx)"></i>
+            </div>
+        </div>
+        <div>
+            <p-message *ngIf="errorJSON[itemIdx].sameStartAndEndTime" severity="error" text="Start Time cannot be equal to End time."></p-message>
+        </div>
+    </div>
+</form>

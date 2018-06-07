@@ -1,0 +1,41 @@
+<div class="ui-export">
+    <div class="ui-g" style="display:inline;">
+        <div class="ui-g-12">
+            <p-fieldset legend="Print Output Format">
+                <div>
+                    <div class="ui-g-4">
+                        <p-radioButton name="exportOption" value="XLSX" [(ngModel)]="exportSelectedOption" (click)="getTemplateList()">
+                        </p-radioButton>
+                        <i class="fa fa-file-excel-o export-icon"></i>
+                    </div>
+                    <div class="ui-g-4">                    
+                        <p-radioButton name="exportOption" value="PDF" [(ngModel)]="exportSelectedOption" (click)="getTemplateList()"></p-radioButton>
+                        <i class="fa fa-file-pdf-o export-icon"></i>
+                    </div>  
+                </div> 
+            </p-fieldset>            
+        </div>
+        <div class="ui-g-12"> 
+            <p-checkbox [(ngModel)]="generateSeperateFileFlag" binary="true" (click)="checkFlag()"></p-checkbox>
+            Generate Seperate File For Each Market
+        </div>  
+        <div class="export-template-content">
+            <div class="ui-g-12 export-template-list" >
+                <div *ngIf="showTemplateList" class="ui-g-12">        
+                    <p-dataTable [value]="templateList">
+                        <p-column styleClass="export-td-select-box" header="Select" [style]="{'width':'20%'}" >
+                            <ng-template pTemplate="body"  let-col let-market="rowData">
+                                <p-checkbox name="template" binary="true" [(ngModel)]="market.selectedTemplate" (onChange)="selectOneTemplate($event, market, market.templateID)"></p-checkbox>
+                            </ng-template>  
+                        </p-column>                            
+                        <p-column field=templateName header="Template"></p-column>
+                    </p-dataTable>
+                </div>
+            </div>  
+        </div>
+        <div class="btn-holder ui-g-12 ui-md-12">
+            <button pButton type="button" label="Cancel" style="margin-right:65px"(click)="onCancel()"></button>
+            <button pButton [disabled]=!selectedTemplate type="button" label="Export" (click)="exportData()"></button>
+        </div>
+    </div>  
+</div>

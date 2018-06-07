@@ -1,0 +1,53 @@
+<div [class]="styleClass" [ngStyle]="filterStyle"  [ngClass]= "{'filterPanel-hidden': !filterPanelVisible, 'filterPanel-visible': filterPanelVisible}">	
+	<div class="ui-g-12 ui-md-1 filter_text_container">
+		<span class="filter_text">Filters:</span>
+	</div>
+	<div class="ui-g-12 ui-md-9" style="padding:0px;width:66%;flex-grow:2;">
+		<div class="ui-g-12 ui-md-12" style="padding: 0px;">
+			<op-filterobject [panelId]="panelId" [attributes]="freqAttributes" #freqfilterobjectpanel></op-filterobject>
+		</div>
+		<div  [class.showMore]="!showMore" class="ui-g-12 ui-md-12" style="padding: 0px;">
+			<op-filterobject [panelId]="panelId" [attributes]="otherAttributes" #otherfilterobjectpanel></op-filterobject>
+		</div>
+	</div>
+<!--	<div *ngIf="otherAttributes.length > 0" class="ui-g-12 ui-md-1" style="padding:0px 0px 0px 3px;width: 5vw;flex-grow:1">
+		<div *ngIf="!showMore && filterCount !== 0" class="ui-g-12 ui-md-12">
+			<p-button (onClick)="showMore=true; onShowClick($event,showMore)" label="Show More ({{filterCount}})"></p-button>
+		</div>
+		<div [class.showMore]="!showMore" class="ui-g-12 ui-md-12" id="btn-style">
+			<p-button (click)="showMore=false; onShowClick($event,showMore)" label="Show Less""></p-button>
+		</div>
+	</div>
+	<div *ngIf="canShowClearButton" class="ui-g-12 ui-md-1"  style="padding: 0px;width: 5vw;flex-grow:1;">
+		<div class="ui-g-12 ui-md-12">
+			<p-button label="Clear All Filters" [disabled]="!clearPanelVisible" (onClick)="clearAll($event)" "></p-button>
+		</div>
+	</div>
+	<div *ngIf="canShowApplyButton" class="ui-g-12 ui-md-1" style="padding: 0px;width: 5vw;flex-grow:1;">
+		<div class="ui-g-12 ui-md-12">
+			<p-button label="Apply Filters" (click)="onApplyFilterClick($event)" "></p-button>
+		</div>
+	</div> -->
+
+	<div *ngIf="otherAttributes.length > 0" class="button-wrapper ui-g-12 ui-md-1" style="padding:0px 0px 0px 3px;width: 5vw;flex-grow:1">
+		<div *ngIf="!showMore && filterCount !== 0" class="button ui-g-12 ui-md-12">			
+			<button type="button" pButton label="Show More ({{filterCount}})" class="secondary"  (click)="showMore=true; onShowClick($event,showMore)"></button>
+		</div>
+		<div [class.showMore]="!showMore" class="button ui-g-12 ui-md-12" id="btn-style">			
+			<button type="button" pButton label="Show Less" class="secondary" (click)="showMore=false; onShowClick($event,showMore)"></button>
+		</div>
+	</div>
+	<div *ngIf="canShowClearButton" class="button-wrapper ui-g-12 ui-md-1"  style="padding: 0px;width: 6vw;flex-grow:1;">
+		<div class="button ui-g-12 ui-md-12">			
+			<button type="button" pButton label="Clear All Filters" class="secondary" [disabled]="!clearPanelVisible" (click)="clearAll($event)" style="width:120px;"></button>
+		</div>
+	</div>
+	<div *ngIf="canShowApplyButton" class="button-wrapper ui-g-12 ui-md-1" style="padding: 0px;width: 5vw;flex-grow:1;">
+		<div class="button ui-g-12 ui-md-12">			
+			<button type="button" pButton label="Apply Filters"   class="secondary" (click)="onApplyFilterClick($event)"></button>
+		</div>
+	</div> 
+</div>
+
+		
+

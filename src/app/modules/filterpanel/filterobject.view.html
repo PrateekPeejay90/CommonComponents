@@ -1,0 +1,60 @@
+<ng-container *ngFor="let attribute of attributes;let i=index" [ngSwitch]="attribute.dataType">
+	<ng-container>
+		<div class="ui-g-12 ui-md-2 filterField " *ngSwitchCase="'date'">
+			<p-calendar [showIcon]="true" selectionMode="{{attribute.selectionMode}}" (onSelect)="topFilter.onDateSelect($event,attribute.selectionMode,attribute.attributeName)" #singlecal></p-calendar>				
+		</div>
+		<div class="ui-g-12 ui-md-2 filterField " *ngSwitchCase="'bcdaterange'" style="position:relative;">
+			<broadcast-calendar styleClass="broadcastCal" [filterAttribute]="attribute" [isSingleSelect]="attribute.isSingleSelect" [closeIconTop]="15" fieldName="{{attribute.fieldName || attribute.attributeName}}" 
+			previousDateLimit="{{attribute.previousDateLimit}}" minDate="{{attribute.minDate}}" maxDate="{{attribute.maxDate}}"
+			placeHolderText="{{attribute.displayName}}" (change)="topFilter.onBCDaterangeChange($event,attribute.attributeName)" (onDirtySelect)="topFilter.onBCDaterangeChange($event,attribute.attributeName)"></broadcast-calendar>
+		</div>
+		<div class="ui-g-12 ui-md-2 filterField " *ngSwitchCase="'daterange'" >
+			<button pButton type="button" (click)="showDateRangePanel=true" label="{{attribute.displayName}}"></button>
+			<ng-container *ngIf="showDateRangePanel">
+				<app-effectivedates [attribute]="attribute" [display]="showDateRangePanel" (onPanelHide)="topFilter.onDateRangePanelHide($event)" ></app-effectivedates>
+			</ng-container>
+		</div>
+		<div class="ui-g-12 ui-md-2 filterField " style="position:relative;" *ngSwitchCase="'text'">
+			<app-input [attribute]="attribute" (onTextChange)="topFilter.onTextChange($event)"></app-input>
+		</div>
+		<div class="ui-g-12 ui-md-2 filterField " *ngSwitchCase="'dropdown'">
+			<app-singleselect [ngStyle]="{'position':'relative'}" [filterAttribute]="attribute" (selChange)="topFilter.onSingleSelectChange($event,attribute.attributeName)"></app-singleselect>
+		</div>
+		<div class="ui-g-12 ui-md-2 filterField " *ngSwitchCase="'checkbox'">
+			<app-checkbox [attribute] ="attribute" [checked]="attribute.checked" (checkBoxChange)="topFilter.onCheckboxChange($event,attribute.attributeName)"></app-checkbox>
+		</div>
+		<div class="ui-g-12 ui-md-2 filterField " *ngSwitchCase="'button'">
+			<app-button  [attribute]="attribute" (buttonClick)="topFilter.onBtnClick($event,attribute.attributeName)"  id="{{panelId}}_{{attribute.attributeName}}" #button></app-button>
+		</div>
+		<div class="ui-g-12 ui-md-2 filterField " *ngSwitchCase="'daysAndTimes'">
+			<app-daysandtimes [filterAttribute]="attribute" [mandatory]="attribute.mandatory" [multiSelect]="attribute.multiSelect"
+			[displayName]="attribute.displayName" [attributeName]="attribute.attributeName" [showTooltip]="attribute.showTooltip"
+			(optionChanged)="attribute.optionChanged? attribute.optionChanged($event) : topFilter.onDaysAndTimesOptionChanged($event)" id="{{panelId}}_{{attribute.attributeName}}" #daysandtimescombo ></app-daysandtimes>
+		</div>		
+	
+		<div class="ui-g-12 ui-md-2 filterField " *ngSwitchCase="'days'">
+			<app-days-combobox [name]="attribute.attributeName" [ngModel]="attribute.value" [filterAttribute]="attribute" [showTooltip]="attribute.showTooltip" [mandatory]="attribute.mandatory" 
+			[displayName]="attribute.displayName" [dropdownPlaceholder]="''" [attributeName]="attribute.attributeName" 
+			(optionChanged)="attribute.optionChanged? attribute.optionChanged($event) : topFilter.onDaysOptionChanged($event)" 
+			(dropdownMenuBlur)="topFilter.onDaysOptionChanged($event)"></app-days-combobox>
+		</div>
+	
+		<div class="ui-g-12 ui-md-2 filterField " *ngSwitchCase="'time'">
+			<app-timepicker [name]="attribute.attributeName" [ngModel]="attribute.value" [filterAttribute]="attribute" [mandatory]="attribute.mandatory" [placeholder]="attribute.displayName" 
+			[displayName]="attribute.displayName" [attributeName]="attribute.attributeName" 
+			(optionChanged)="attribute.optionChanged? attribute.optionChanged($event) : topFilter.onTimeOptionChanged($event)"></app-timepicker>
+		</div>
+		<div class="ui-g-12 ui-md-2 filterField " *ngSwitchCase="'index'">
+		   <app-index-field [attribute] ="attribute" [placeholder]="attribute.displayName" (onIndexInputChange)="topFilter.onIndexInputChange($event)"></app-index-field>
+		</div>			
+		<div class="ui-g-12 ui-md-2 filterField " *ngSwitchCase="'multiselect'">
+			<ra-combobox [virtualScroll]="attribute.virtualScroll" [allowNewOptions]="false" [options]="attribute.dataArray" [searchboxPlaceholder]="'Search for {attributeName}'" [dropdownPlaceholder]="'{attributeName}'"
+				[dropdownCountPlaceholder]="'({count})'" [displayName]="attribute.displayName" [showTooltip]="attribute.showTooltip" [mandatory]="attribute.isMandatory" [optionMeta]="attribute.optionMeta" [attributeName]="attribute.attributeName" [filterAttribute]="attribute" [disabled]="attribute.disabled" [manualLoad]="attribute.manualLoad"
+				(dropdownMenuBlur)="topFilter.onMultiBlur($event)" (optionChanged)="attribute.optionChanged? attribute.optionChanged($event) : topFilter.onOptionChanged($event)" id="{{panelId}}_{{attribute.attributeName}}" #combobox>
+			</ra-combobox>
+		</div>
+		<div class="ui-g-12 ui-md-2 filterField" *ngSwitchDefault>
+			Unsupported Data Type
+		</div>
+	</ng-container>	
+</ng-container>

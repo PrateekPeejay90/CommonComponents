@@ -1,0 +1,30 @@
+<div class="daysandCombo-combobox" [ngClass]="{active: openMenu}">
+	<div class="input-container">
+        <input #searchbox class="ui-inputtext ui-corner-all ui-state-default ui-widget" [ngClass]="{placeholder : !openMenu, disabled: disabled}" type="text" [(ngModel)]="inputValue"
+            [pTooltip]="showTooltip ? tooltip : ''" [escape]="false" tooltipPosition="right"
+            [disabled]="disabled" (click)="!itemsLoading && onSearchboxFocus(false)" (focus)="!itemsLoading && onSearchboxFocus(true)">
+        <span class="down-arrow" (click)="!itemsLoading && onSearchboxFocus(false)">
+            <i class="fa fa-fw fa-calendar triggericon" ></i>
+        </span>
+        <!--<span class="down-arrow" *ngIf="(inputvalue.days.length > 0 || inputvalue.startTime !='' || inputvalue.endTime != '')" (click)="unselectAll();updatePlaceholder();">
+            <i class="fa fa-fw fa-times combo-icon"></i>
+        </span>-->
+        <span *ngIf="!keyword" (click)="!disabled && !itemsLoading && onSearchboxFocus(true)" class="placeholder"
+            [ngClass]="{mandatory: mandatory && !openMenu}" attr.data-placeholder="{{placeholder || displayName}}"></span>
+	</div>
+</div>
+
+<p-dialog *ngIf=showDialog [(visible)]="showDialog" [resizable]="false" header="{{displayName}}" [responsive]="true" [width]=dialogWidth [contentStyle]="{'height': 'auto', 'overflow': 'inherit'}" [modal]="true" appendTo="body" [(closable)]="closable" (onHide)="onDialogHide()" (onShow)="onDialogShow()">
+    <app-daysandtimes-layout #daysandtimesLayoutComponent 
+    [(ngModel)]="inputValue"
+    [(filterAttribute)]="filterAttribute.items"
+    [mandatory]="filterAttribute.mandatory"
+    [multiSelect]="filterAttribute.multiSelect"
+    (addclick)="onAddItemClick($event)"
+    (removeclick)="onRemoveItemClick($event)"
+    (clearclick)="onClearClick($event)"
+    (optionChanged)="onDaysAndTimesLayoutOptionChanged($event)"></app-daysandtimes-layout>
+    <p-footer>
+        <button type="submit" style="width: 65px;" pButton (click)="onDoneClick()" [disabled]="!isDirty" label="Done"></button>
+    </p-footer>
+</p-dialog>

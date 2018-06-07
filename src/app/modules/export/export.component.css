@@ -1,0 +1,34 @@
+.ui-export {
+    width: 500px;
+    background: #ffffff;
+}
+
+.ui-export .export-layout {
+    border-bottom: 1px solid #0000002e
+}
+
+.export-icon{
+    font-size: 6em;
+    padding: 10px;
+}
+
+.export-template-content{
+    padding: 0.5em;
+}
+
+.export-template-list{
+    border: 1px solid #0000002e;
+    height: 235px;
+    overflow: scroll;
+}
+
+.ui-datatable .ui-datatable-data tr .export-td-select-box{
+    width:50px; 
+    text-align:center;
+}
+
+.btn-holder {
+    position: relative;
+    justify-content: flex-end;
+    display: flex;
+}

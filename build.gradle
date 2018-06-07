@@ -1,0 +1,35 @@
+plugins {
+	id "com.moowork.node" version "0.13"
+}
+
+
+// configure gradle-node-plugin
+node {
+	version = '8.3.0'
+	npmVersion = '3.10.6'
+	download = true
+	workDir = file("${project.projectDir}/node")
+	nodeModulesDir = file("${project.projectDir}/")
+}
+
+// clean node/node_modules/dist
+task npmClean(type: Delete) {
+	final def webDir = "${rootDir}"
+	delete "${webDir}/node"
+	delete "${webDir}/node_modules"
+	delete "${webDir}/dist"
+	delete "${webDir}/coverage"
+	delete "${webDir}/package-lock.json"
+}
+
+// build task for npm
+task npmBuild {
+	dependsOn(npmClean)
+	dependsOn(npm_install)
+	dependsOn(npm_run_packagr)
+}
+
+def distZip = task pack(type:NpmTask) {
+	args = ['pack','./dist']
+}
+

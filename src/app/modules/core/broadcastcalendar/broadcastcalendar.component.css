@@ -1,0 +1,33 @@
+.bcCal .ui-inputtext {
+	font-size: 12px;
+	height: 24px;
+	width: 90%;
+}
+
+.item-close {
+    top: 12px;
+    right: 30px
+}
+
+.p-dialog-class{
+	width:60% !important;
+}
+
+.p-dialog-class .ui-datatable-data tr td {
+	padding: 0px;
+}
+
+.broadcast-calendar-icon {
+    cursor: pointer;
+}
+
+.ui-inputgroup .triggericon {
+    vertical-align: middle;
+	background: transparent;
+    width: auto;
+    border: 1px solid silver;
+    border-radius: 2px;
+    line-height: 12px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}

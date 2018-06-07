@@ -1,0 +1,14 @@
+<p-dialog [(visible)]="display" header="{{attribute.displayName}}" [responsive]="true" [width]="420" [contentStyle]="{'height': 'auto'}" [modal]="true" appendTo="body" [(closable)]="closable" (onHide)="onDialogHide()">
+    <div class="ui-g ui-fluid">
+	    <div class="ui-g-12 ui-md-6" style="position:relative;">
+	        <broadcast-calendar #fromDt appendTo="body" [filterAttribute]="attribute" [isSingleSelect]="attribute.isSingleSelect||true" [showAsRange]="attribute.showAsRange" placeHolderText="{{attribute.fromDateLabel}}"  [(ngModel)]="fromDate" (change)="onFromDateChange($event)" (onDirtySelect)="onFromDateChange($event)" fieldName="{{attribute.fromFieldName || 'fromFieldName'}}" previousDateLimit="{{attribute.previousDateLimit}}"></broadcast-calendar>
+	    </div>
+	    
+	    <div class="ui-g-12 ui-md-6" style="position:relative;">
+	        <broadcast-calendar #toDt appendTo="body" [filterAttribute]="attribute" [isSingleSelect]="attribute.isSingleSelect||true" [showAsRange]="attribute.showAsRange" placeHolderText="{{attribute.toDateLabel}}" [(ngModel)]="toDate" (change)="onToDateChange($event)" (onDirtySelect)="onToDateChange($event)" fieldName="{{attribute.toFieldName || 'toFieldName'}}" previousDateLimit="{{attribute.previousDateLimit}}"></broadcast-calendar>
+	    </div>
+    </div>
+	<p-footer>
+		<button type="button" style="width: 65px;" pButton (click)="onDialogHide()" [disabled]="!fromDate && !toDate" label="OK"></button>
+	</p-footer>
+</p-dialog>

@@ -1,0 +1,996 @@
+[
+  {
+    "data": {
+      "bookId": "5af2c8029949bd309430de21",
+      "markets": [
+        {
+          "id": "IrVm-c6oQWWfrImvKkeqlQ",
+          "name": "New York",
+          "nielsenCode": "101",
+          "comScoreCode": null,
+          "timezone": "Eastern",
+          "stations": [
+            {
+              "id": "PSIoYUg2SSKPYGWXxA9wqg",
+              "name": null,
+              "comScoreCode": null,
+              "nielsenDistributorCode": "10424"
+            },
+            {
+              "id": "cBJ8CyimSP6ffUy4JSHbJA",
+              "name": null,
+              "comScoreCode": null,
+              "nielsenDistributorCode": "5813"
+            },
+            {
+              "id": "_0J7rMB9Q6Oc0hMt0qfysQ",
+              "name": null,
+              "comScoreCode": null,
+              "nielsenDistributorCode": "5013"
+            },
+            {
+              "id": "4MVjSi8SRAWeul5eS4jk6g",
+              "name": null,
+              "comScoreCode": null,
+              "nielsenDistributorCode": "4544"
+            }
+          ]
+        }
+      ],
+      "bookName": "Create_Permission",
+      "bookType": "PJ",
+      "source": "nielsen",
+      "ratingStream": "L7",
+      "startDate": null,
+      "endDate": null,
+      "status": "Draft",
+      "lastUpdatedDate": "2018-05-09T10:05:54.71",
+      "createdDate": "2018-05-09T10:05:54.71",
+      "month": 0,
+      "year": 0,
+      "ratingStreamValue": "Live+7"
+    },
+    "children": [
+      {
+        "data": {
+          "bookName": "",
+          "ratingStreamValue": "Live +3",
+          "markets": [
+            {
+              "id": "IrVm-c6oQWWfrImvKkeqlQ",
+              "name": "New York",
+              "nielsenCode": "101",
+              "comScoreCode": null,
+              "timezone": "Eastern",
+              "stations": [
+                {
+                  "id": "PSIoYUg2SSKPYGWXxA9wqg",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "10424"
+                },
+                {
+                  "id": "cBJ8CyimSP6ffUy4JSHbJA",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "5813"
+                },
+                {
+                  "id": "_0J7rMB9Q6Oc0hMt0qfysQ",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "5013"
+                },
+                {
+                  "id": "4MVjSi8SRAWeul5eS4jk6g",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "4544"
+                }
+              ]
+            }
+          ],
+          "bookType": "PJ",
+          "lastUpdatedDate": "2018-05-09T10:05:54.71",
+          "status": "Multiple"
+        }
+      },
+      {
+        "data": {
+          "bookName": "",
+          "ratingStreamValue": "Live +7",
+          "markets": [
+            {
+              "id": "IrVm-c6oQWWfrImvKkeqlQ",
+              "name": "New York",
+              "nielsenCode": "101",
+              "comScoreCode": null,
+              "timezone": "Eastern",
+              "stations": [
+                {
+                  "id": "PSIoYUg2SSKPYGWXxA9wqg",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "10424"
+                },
+                {
+                  "id": "cBJ8CyimSP6ffUy4JSHbJA",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "5813"
+                },
+                {
+                  "id": "_0J7rMB9Q6Oc0hMt0qfysQ",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "5013"
+                },
+                {
+                  "id": "4MVjSi8SRAWeul5eS4jk6g",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "4544"
+                }
+              ]
+            }
+          ],
+          "bookType": "Program Average",
+          "lastUpdatedDate": "2018-05-09T10:05:54.71",
+          "status": "Draft"
+        }
+      }
+    ]
+  },
+  {
+    "data": {
+      "bookId": "5af172809949bd309430de11",
+      "markets": [
+        {
+          "id": "IrVm-c6oQWWfrImvKkeqlQ",
+          "name": "New York",
+          "nielsenCode": "101",
+          "comScoreCode": null,
+          "timezone": "Eastern",
+          "stations": [
+            {
+              "id": "_0J7rMB9Q6Oc0hMt0qfysQ",
+              "name": null,
+              "comScoreCode": null,
+              "nielsenDistributorCode": "5013"
+            },
+            {
+              "id": "4MVjSi8SRAWeul5eS4jk6g",
+              "name": null,
+              "comScoreCode": null,
+              "nielsenDistributorCode": "4544"
+            },
+            {
+              "id": "cBJ8CyimSP6ffUy4JSHbJA",
+              "name": null,
+              "comScoreCode": null,
+              "nielsenDistributorCode": "5813"
+            },
+            {
+              "id": "PSIoYUg2SSKPYGWXxA9wqg",
+              "name": null,
+              "comScoreCode": null,
+              "nielsenDistributorCode": "10424"
+            }
+          ]
+        }
+      ],
+      "bookName": "NewtestAPI2",
+      "bookType": "PJ",
+      "source": "nielsen",
+      "ratingStream": "L",
+      "startDate": null,
+      "endDate": null,
+      "status": "Draft",
+      "lastUpdatedDate": "2018-05-08T12:27:00.354",
+      "createdDate": "2018-05-08T09:48:48.982",
+      "month": 0,
+      "year": 0,
+      "ratingStreamValue": "Live"
+    },
+    "children": [
+      {
+        "data": {
+          "bookName": "",
+          "ratingStreamValue": "Live +3",
+          "markets": [
+            {
+              "id": "IrVm-c6oQWWfrImvKkeqlQ",
+              "name": "New York",
+              "nielsenCode": "101",
+              "comScoreCode": null,
+              "timezone": "Eastern",
+              "stations": [
+                {
+                  "id": "PSIoYUg2SSKPYGWXxA9wqg",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "10424"
+                },
+                {
+                  "id": "cBJ8CyimSP6ffUy4JSHbJA",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "5813"
+                },
+                {
+                  "id": "_0J7rMB9Q6Oc0hMt0qfysQ",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "5013"
+                },
+                {
+                  "id": "4MVjSi8SRAWeul5eS4jk6g",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "4544"
+                }
+              ]
+            }
+          ],
+          "bookType": "PJ",
+          "lastUpdatedDate": "2018-05-09T10:05:54.71",
+          "status": "Multiple"
+        }
+      },
+      {
+        "data": {
+          "bookName": "",
+          "ratingStreamValue": "Live +7",
+          "markets": [
+            {
+              "id": "IrVm-c6oQWWfrImvKkeqlQ",
+              "name": "New York",
+              "nielsenCode": "101",
+              "comScoreCode": null,
+              "timezone": "Eastern",
+              "stations": [
+                {
+                  "id": "PSIoYUg2SSKPYGWXxA9wqg",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "10424"
+                },
+                {
+                  "id": "cBJ8CyimSP6ffUy4JSHbJA",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "5813"
+                },
+                {
+                  "id": "_0J7rMB9Q6Oc0hMt0qfysQ",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "5013"
+                },
+                {
+                  "id": "4MVjSi8SRAWeul5eS4jk6g",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "4544"
+                }
+              ]
+            }
+          ],
+          "bookType": "Program Average",
+          "lastUpdatedDate": "2018-05-09T10:05:54.71",
+          "status": "Draft"
+        }
+      }
+    ]
+  },
+  {
+    "data": {
+      "bookId": "5af172809949bd309430de11",
+      "markets": [
+        {
+          "id": "IrVm-c6oQWWfrImvKkeqlQ",
+          "name": "New York",
+          "nielsenCode": "101",
+          "comScoreCode": null,
+          "timezone": "Eastern",
+          "stations": [
+            {
+              "id": "_0J7rMB9Q6Oc0hMt0qfysQ",
+              "name": null,
+              "comScoreCode": null,
+              "nielsenDistributorCode": "5013"
+            },
+            {
+              "id": "4MVjSi8SRAWeul5eS4jk6g",
+              "name": null,
+              "comScoreCode": null,
+              "nielsenDistributorCode": "4544"
+            },
+            {
+              "id": "cBJ8CyimSP6ffUy4JSHbJA",
+              "name": null,
+              "comScoreCode": null,
+              "nielsenDistributorCode": "5813"
+            },
+            {
+              "id": "PSIoYUg2SSKPYGWXxA9wqg",
+              "name": null,
+              "comScoreCode": null,
+              "nielsenDistributorCode": "10424"
+            }
+          ]
+        }
+      ],
+      "bookName": "NewtestAPI2",
+      "bookType": "PJ",
+      "source": "nielsen",
+      "ratingStream": "L",
+      "startDate": null,
+      "endDate": null,
+      "status": "Draft",
+      "lastUpdatedDate": "2018-05-08T12:27:00.354",
+      "createdDate": "2018-05-08T09:48:48.982",
+      "month": 0,
+      "year": 0,
+      "ratingStreamValue": "Live"
+    },
+    "children": [
+      {
+        "data": {
+          "bookName": "",
+          "ratingStreamValue": "Live +3",
+          "markets": [
+            {
+              "id": "IrVm-c6oQWWfrImvKkeqlQ",
+              "name": "New York",
+              "nielsenCode": "101",
+              "comScoreCode": null,
+              "timezone": "Eastern",
+              "stations": [
+                {
+                  "id": "PSIoYUg2SSKPYGWXxA9wqg",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "10424"
+                },
+                {
+                  "id": "cBJ8CyimSP6ffUy4JSHbJA",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "5813"
+                },
+                {
+                  "id": "_0J7rMB9Q6Oc0hMt0qfysQ",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "5013"
+                },
+                {
+                  "id": "4MVjSi8SRAWeul5eS4jk6g",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "4544"
+                }
+              ]
+            }
+          ],
+          "bookType": "PJ",
+          "lastUpdatedDate": "2018-05-09T10:05:54.71",
+          "status": "Multiple"
+        }
+      },
+      {
+        "data": {
+          "bookName": "",
+          "ratingStreamValue": "Live +7",
+          "markets": [
+            {
+              "id": "IrVm-c6oQWWfrImvKkeqlQ",
+              "name": "New York",
+              "nielsenCode": "101",
+              "comScoreCode": null,
+              "timezone": "Eastern",
+              "stations": [
+                {
+                  "id": "PSIoYUg2SSKPYGWXxA9wqg",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "10424"
+                },
+                {
+                  "id": "cBJ8CyimSP6ffUy4JSHbJA",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "5813"
+                },
+                {
+                  "id": "_0J7rMB9Q6Oc0hMt0qfysQ",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "5013"
+                },
+                {
+                  "id": "4MVjSi8SRAWeul5eS4jk6g",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "4544"
+                }
+              ]
+            }
+          ],
+          "bookType": "Program Average",
+          "lastUpdatedDate": "2018-05-09T10:05:54.71",
+          "status": "Draft"
+        }
+      }
+    ]
+  },
+  {
+    "data": {
+      "bookId": "5af191e09949bd309430de1e",
+      "markets": [
+        {
+          "id": "IrVm-c6oQWWfrImvKkeqlQ",
+          "name": "New York",
+          "nielsenCode": "101",
+          "comScoreCode": null,
+          "timezone": "Eastern",
+          "stations": [
+            {
+              "id": "PSIoYUg2SSKPYGWXxA9wqg",
+              "name": null,
+              "comScoreCode": null,
+              "nielsenDistributorCode": "10424"
+            },
+            {
+              "id": "4MVjSi8SRAWeul5eS4jk6g",
+              "name": null,
+              "comScoreCode": null,
+              "nielsenDistributorCode": "4544"
+            },
+            {
+              "id": "_0J7rMB9Q6Oc0hMt0qfysQ",
+              "name": null,
+              "comScoreCode": null,
+              "nielsenDistributorCode": "5013"
+            },
+            {
+              "id": "cBJ8CyimSP6ffUy4JSHbJA",
+              "name": null,
+              "comScoreCode": null,
+              "nielsenDistributorCode": "5813"
+            }
+          ]
+        }
+      ],
+      "bookName": "Test_market",
+      "bookType": "PJ",
+      "source": "nielsen",
+      "ratingStream": "L",
+      "startDate": null,
+      "endDate": null,
+      "status": "Draft",
+      "lastUpdatedDate": "2018-05-08T12:02:40.319",
+      "createdDate": "2018-05-08T12:02:40.319",
+      "month": 0,
+      "year": 0,
+      "ratingStreamValue": "Live"
+    },
+    "children": [
+      {
+        "data": {
+          "bookName": "",
+          "ratingStreamValue": "Live +3",
+          "markets": [
+            {
+              "id": "IrVm-c6oQWWfrImvKkeqlQ",
+              "name": "New York",
+              "nielsenCode": "101",
+              "comScoreCode": null,
+              "timezone": "Eastern",
+              "stations": [
+                {
+                  "id": "PSIoYUg2SSKPYGWXxA9wqg",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "10424"
+                },
+                {
+                  "id": "cBJ8CyimSP6ffUy4JSHbJA",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "5813"
+                },
+                {
+                  "id": "_0J7rMB9Q6Oc0hMt0qfysQ",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "5013"
+                },
+                {
+                  "id": "4MVjSi8SRAWeul5eS4jk6g",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "4544"
+                }
+              ]
+            }
+          ],
+          "bookType": "PJ",
+          "lastUpdatedDate": "2018-05-09T10:05:54.71",
+          "status": "Multiple"
+        }
+      },
+      {
+        "data": {
+          "bookName": "",
+          "ratingStreamValue": "Live +7",
+          "markets": [
+            {
+              "id": "IrVm-c6oQWWfrImvKkeqlQ",
+              "name": "New York",
+              "nielsenCode": "101",
+              "comScoreCode": null,
+              "timezone": "Eastern",
+              "stations": [
+                {
+                  "id": "PSIoYUg2SSKPYGWXxA9wqg",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "10424"
+                },
+                {
+                  "id": "cBJ8CyimSP6ffUy4JSHbJA",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "5813"
+                },
+                {
+                  "id": "_0J7rMB9Q6Oc0hMt0qfysQ",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "5013"
+                },
+                {
+                  "id": "4MVjSi8SRAWeul5eS4jk6g",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "4544"
+                }
+              ]
+            }
+          ],
+          "bookType": "Program Average",
+          "lastUpdatedDate": "2018-05-09T10:05:54.71",
+          "status": "Draft"
+        }
+      }
+    ]
+  },
+  {
+    "data": {
+      "bookId": "5af191859949bd309430de1d",
+      "markets": [
+        {
+          "id": "IrVm-c6oQWWfrImvKkeqlQ",
+          "name": "New York",
+          "nielsenCode": "101",
+          "comScoreCode": null,
+          "timezone": "Eastern",
+          "stations": [
+            {
+              "id": "PSIoYUg2SSKPYGWXxA9wqg",
+              "name": null,
+              "comScoreCode": null,
+              "nielsenDistributorCode": "10424"
+            },
+            {
+              "id": "4MVjSi8SRAWeul5eS4jk6g",
+              "name": null,
+              "comScoreCode": null,
+              "nielsenDistributorCode": "4544"
+            },
+            {
+              "id": "_0J7rMB9Q6Oc0hMt0qfysQ",
+              "name": null,
+              "comScoreCode": null,
+              "nielsenDistributorCode": "5013"
+            },
+            {
+              "id": "cBJ8CyimSP6ffUy4JSHbJA",
+              "name": null,
+              "comScoreCode": null,
+              "nielsenDistributorCode": "5813"
+            }
+          ]
+        }
+      ],
+      "bookName": "devtest1",
+      "bookType": "PJ",
+      "source": "nielsen",
+      "ratingStream": "L",
+      "startDate": null,
+      "endDate": null,
+      "status": "Draft",
+      "lastUpdatedDate": "2018-05-08T12:01:09.716",
+      "createdDate": "2018-05-08T12:01:09.716",
+      "month": 0,
+      "year": 0,
+      "ratingStreamValue": "Live"
+    },
+    "children": [
+      {
+        "data": {
+          "bookName": "",
+          "ratingStreamValue": "",
+          "markets": [
+            {
+              "id": "IrVm-c6oQWWfrImvKkeqlQ",
+              "name": "New York",
+              "nielsenCode": "101",
+              "comScoreCode": null,
+              "timezone": "Eastern",
+              "stations": [
+                {
+                  "id": "PSIoYUg2SSKPYGWXxA9wqg",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "10424"
+                },
+                {
+                  "id": "cBJ8CyimSP6ffUy4JSHbJA",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "5813"
+                },
+                {
+                  "id": "_0J7rMB9Q6Oc0hMt0qfysQ",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "5013"
+                },
+                {
+                  "id": "4MVjSi8SRAWeul5eS4jk6g",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "4544"
+                }
+              ]
+            }
+          ],
+          "bookType": "PJ",
+          "lastUpdatedDate": "03/31/2018 06:08PM",
+          "status": "Draft"
+        }
+      },
+      {
+        "data": {
+          "bookName": "",
+          "ratingStreamValue": "",
+          "markets": [
+            {
+              "id": "IrVm-c6oQWWfrImvKkeqlQ",
+              "name": "New York",
+              "nielsenCode": "101",
+              "comScoreCode": null,
+              "timezone": "Eastern",
+              "stations": [
+                {
+                  "id": "PSIoYUg2SSKPYGWXxA9wqg",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "10424"
+                },
+                {
+                  "id": "cBJ8CyimSP6ffUy4JSHbJA",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "5813"
+                },
+                {
+                  "id": "_0J7rMB9Q6Oc0hMt0qfysQ",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "5013"
+                },
+                {
+                  "id": "4MVjSi8SRAWeul5eS4jk6g",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "4544"
+                }
+              ]
+            }
+          ],
+          "bookType": "PJ",
+          "lastUpdatedDate": "2018-05-09T10:05:54.71",
+          "status": "Draft"
+        }
+      }
+    ]
+  },
+  {
+    "data": {
+      "bookId": "5af2c8029949bd309430de21",
+      "markets": [
+        {
+          "id": "IrVm-c6oQWWfrImvKkeqlQ",
+          "name": "New York",
+          "nielsenCode": "101",
+          "comScoreCode": null,
+          "timezone": "Eastern",
+          "stations": [
+            {
+              "id": "PSIoYUg2SSKPYGWXxA9wqg",
+              "name": null,
+              "comScoreCode": null,
+              "nielsenDistributorCode": "10424"
+            },
+            {
+              "id": "cBJ8CyimSP6ffUy4JSHbJA",
+              "name": null,
+              "comScoreCode": null,
+              "nielsenDistributorCode": "5813"
+            },
+            {
+              "id": "_0J7rMB9Q6Oc0hMt0qfysQ",
+              "name": null,
+              "comScoreCode": null,
+              "nielsenDistributorCode": "5013"
+            },
+            {
+              "id": "4MVjSi8SRAWeul5eS4jk6g",
+              "name": null,
+              "comScoreCode": null,
+              "nielsenDistributorCode": "4544"
+            }
+          ]
+        }
+      ],
+      "bookName": "Create_Permission",
+      "bookType": "PJ",
+      "source": "nielsen",
+      "ratingStream": "L7",
+      "startDate": null,
+      "endDate": null,
+      "status": "Draft",
+      "lastUpdatedDate": "2018-05-09T10:05:54.71",
+      "createdDate": "2018-05-09T10:05:54.71",
+      "month": 0,
+      "year": 0,
+      "ratingStreamValue": "Live+7"
+    },
+    "children": [
+      {
+        "data": {
+          "bookName": "",
+          "ratingStreamValue": "Live +3",
+          "markets": [
+            {
+              "id": "IrVm-c6oQWWfrImvKkeqlQ",
+              "name": "New York",
+              "nielsenCode": "101",
+              "comScoreCode": null,
+              "timezone": "Eastern",
+              "stations": [
+                {
+                  "id": "PSIoYUg2SSKPYGWXxA9wqg",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "10424"
+                },
+                {
+                  "id": "cBJ8CyimSP6ffUy4JSHbJA",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "5813"
+                },
+                {
+                  "id": "_0J7rMB9Q6Oc0hMt0qfysQ",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "5013"
+                },
+                {
+                  "id": "4MVjSi8SRAWeul5eS4jk6g",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "4544"
+                }
+              ]
+            }
+          ],
+          "bookType": "PJ",
+          "lastUpdatedDate": "2018-05-09T10:05:54.71",
+          "status": "Multiple"
+        }
+      },
+      {
+        "data": {
+          "bookName": "",
+          "ratingStreamValue": "Live +7",
+          "markets": [
+            {
+              "id": "IrVm-c6oQWWfrImvKkeqlQ",
+              "name": "New York",
+              "nielsenCode": "101",
+              "comScoreCode": null,
+              "timezone": "Eastern",
+              "stations": [
+                {
+                  "id": "PSIoYUg2SSKPYGWXxA9wqg",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "10424"
+                },
+                {
+                  "id": "cBJ8CyimSP6ffUy4JSHbJA",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "5813"
+                },
+                {
+                  "id": "_0J7rMB9Q6Oc0hMt0qfysQ",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "5013"
+                },
+                {
+                  "id": "4MVjSi8SRAWeul5eS4jk6g",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "4544"
+                }
+              ]
+            }
+          ],
+          "bookType": "Program Average",
+          "lastUpdatedDate": "2018-05-09T10:05:54.71",
+          "status": "Draft"
+        }
+      }
+    ]
+  },
+  {
+    "data": {
+      "bookId": "5af2c8029949bd309430de21",
+      "markets": [
+        {
+          "id": "IrVm-c6oQWWfrImvKkeqlQ",
+          "name": "New York",
+          "nielsenCode": "101",
+          "comScoreCode": null,
+          "timezone": "Eastern",
+          "stations": [
+            {
+              "id": "PSIoYUg2SSKPYGWXxA9wqg",
+              "name": null,
+              "comScoreCode": null,
+              "nielsenDistributorCode": "10424"
+            },
+            {
+              "id": "cBJ8CyimSP6ffUy4JSHbJA",
+              "name": null,
+              "comScoreCode": null,
+              "nielsenDistributorCode": "5813"
+            },
+            {
+              "id": "_0J7rMB9Q6Oc0hMt0qfysQ",
+              "name": null,
+              "comScoreCode": null,
+              "nielsenDistributorCode": "5013"
+            },
+            {
+              "id": "4MVjSi8SRAWeul5eS4jk6g",
+              "name": null,
+              "comScoreCode": null,
+              "nielsenDistributorCode": "4544"
+            }
+          ]
+        }
+      ],
+      "bookName": "Create_Permission",
+      "bookType": "PJ",
+      "source": "nielsen",
+      "ratingStream": "L7",
+      "startDate": null,
+      "endDate": null,
+      "status": "Draft",
+      "lastUpdatedDate": "2018-05-09T10:05:54.71",
+      "createdDate": "2018-05-09T10:05:54.71",
+      "month": 0,
+      "year": 0,
+      "ratingStreamValue": "Live+7"
+    },
+    "children": [
+      {
+        "data": {
+          "bookName": "",
+          "ratingStreamValue": "Live +3",
+          "markets": [
+            {
+              "id": "IrVm-c6oQWWfrImvKkeqlQ",
+              "name": "New York",
+              "nielsenCode": "101",
+              "comScoreCode": null,
+              "timezone": "Eastern",
+              "stations": [
+                {
+                  "id": "PSIoYUg2SSKPYGWXxA9wqg",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "10424"
+                },
+                {
+                  "id": "cBJ8CyimSP6ffUy4JSHbJA",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "5813"
+                },
+                {
+                  "id": "_0J7rMB9Q6Oc0hMt0qfysQ",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "5013"
+                },
+                {
+                  "id": "4MVjSi8SRAWeul5eS4jk6g",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "4544"
+                }
+              ]
+            }
+          ],
+          "bookType": "PJ",
+          "lastUpdatedDate": "2018-05-09T10:05:54.71",
+          "status": "Multiple"
+        }
+      },
+      {
+        "data": {
+          "bookName": "",
+          "ratingStreamValue": "Live +7",
+          "markets": [
+            {
+              "id": "IrVm-c6oQWWfrImvKkeqlQ",
+              "name": "New York",
+              "nielsenCode": "101",
+              "comScoreCode": null,
+              "timezone": "Eastern",
+              "stations": [
+                {
+                  "id": "PSIoYUg2SSKPYGWXxA9wqg",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "10424"
+                },
+                {
+                  "id": "cBJ8CyimSP6ffUy4JSHbJA",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "5813"
+                },
+                {
+                  "id": "_0J7rMB9Q6Oc0hMt0qfysQ",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "5013"
+                },
+                {
+                  "id": "4MVjSi8SRAWeul5eS4jk6g",
+                  "name": null,
+                  "comScoreCode": null,
+                  "nielsenDistributorCode": "4544"
+                }
+              ]
+            }
+          ],
+          "bookType": "Program Average",
+          "lastUpdatedDate": "2018-05-09T10:05:54.71",
+          "status": "Draft"
+        }
+      }
+    ]
+  }
+]

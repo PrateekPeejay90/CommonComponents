@@ -1,0 +1,343 @@
+/* Modals */
+.cs-modal .ui-panel .ui-panel-content {
+    padding: 0;
+}
+
+.cs-modal ::ng-deep .fa-close:before,
+.cs-modal ::ng-deep .fa-remove:before,
+.cs-modal ::ng-deep .fa-times:before {
+    color: #707070;
+}
+
+/* Modal - Title Bar */
+.cs-modal ::ng-deep .ui-dialog .ui-dialog-titlebar {
+    text-align: center;
+    background-color: #ffffff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border: none;
+}
+
+.cs-modal ::ng-deep .ui-dialog .ui-dialog-titlebar .ui-dialog-title {
+    font-size: 20px;
+    color: #59a1df;
+    font-family: 'Roboto', sans-serif;
+}
+
+.cs-modal ::ng-deep .ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-icon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 8px;
+    display: flex;
+}
+
+.cs-modal ::ng-deep .ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-icon span {
+    align-self: center;
+}
+
+/* Modal - Content Area */
+.cs-modal ::ng-deep .ui-confirmdialog.ui-dialog .ui-dialog-content,
+.cs-modal ::ng-deep .ui-dialog .ui-dialog-footer {
+    background-color: #e6e6e6;
+    height: auto;
+}
+/* .cs-modal ::ng-deep .ui-confirmdialog {
+    top: 60px !important;
+} */
+
+.cs-modal ::ng-deep .ui-dialog {
+    border: none;
+    border-radius: 9px;
+    min-width: 700px;
+}
+
+.cs-modal ::ng-deep .ui-dialog .ui-dialog-content {
+    min-height: 400px;
+    max-height: 580px;
+}
+
+.cs-modal ::ng-deep .ui-dialog .ui-dialog-content .cap-height {
+    max-height: 320px;
+    overflow-y: scroll;
+}
+
+/* Modal - Footer */
+.cs-modal ::ng-deep .ui-dialog .ui-dialog-footer {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: none;
+}
+
+/* Modal - Components */
+.cs-modal ::ng-deep .ui-widget.ui-button {
+    background-color: #59a1df;
+    font-size: 13px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    padding: 0;
+    margin: 5px;
+}
+
+.cs-modal ::ng-deep .ui-widget.ui-button:hover {
+    background-color: #59a1df;
+    border-color: #59a1df;
+}
+
+/* Modal - Radio Buttons & Checkboxes in Boxes */
+.cs-modal ::ng-deep .copy {
+    font-size: 12px;
+    color: #707070;
+}
+
+.cs-modal ::ng-deep .box-wrapper {
+    border: 1px solid #707070;
+    padding: 0 22px 16px;
+}
+
+.cs-modal ::ng-deep .box-wrapper > .label {
+    text-align: center;
+    margin-top: -9px;
+    font-size: 12px;
+}
+
+.cs-modal ::ng-deep .box-wrapper > .label .label-text {
+    background-color: #e6e6e6;
+    display: inline;
+    padding: 4px;
+}
+
+.cs-modal ::ng-deep .box-wrapper .cell {
+    padding-top: 16px;
+}
+
+.cs-modal ::ng-deep .ui-widget.icon-file {
+    position: relative;
+    min-height: 50px;
+    display: flex;
+}
+
+.cs-modal ::ng-deep .ui-widget.icon-file:before {
+    background-size: contain;
+    background-repeat: no-repeat;
+    content: "";
+    width: 55px;
+    height: 55px;
+    position: absolute;
+    top: 0;
+    right: 45px;
+}
+
+.cs-modal ::ng-deep .ui-widget.ui-radiobutton .ui-radiobutton-box,
+.cs-modal ::ng-deep .ui-widget.ui-chkbox .ui-chkbox-box {
+    width: 14px;
+    height: 14px;
+    align-self: center;
+}
+
+/* Modal - Tabs */
+.cs-modal.tabs ::ng-deep .ui-dialog-content {
+    padding: 0;
+}
+
+/* tabs */
+.cs-modal.tabs ::ng-deep .ui-dialog-content .ui-tabview-nav {
+    background-color: #59a1df;
+    display: flex;
+    justify-content: space-around;
+}
+
+.cs-modal.tabs ::ng-deep .ui-dialog-content .ui-tabview-nav li {
+    padding: 8px 25px 0;
+}
+
+.cs-modal.tabs ::ng-deep .ui-dialog-content .ui-tabview-nav li,
+.cs-modal.tabs ::ng-deep .ui-dialog-content .ui-tabview-nav li.ui-state-active {
+    background-color: transparent;
+}
+
+.cs-modal.tabs ::ng-deep .ui-dialog-content .ui-tabview-nav li.ui-state-active {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-width: 5px;
+}
+
+body .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active, 
+body .ui-tabview.ui-tabview-bottom .ui-tabview-nav li.ui-state-active, 
+body .ui-tabview.ui-tabview-left .ui-tabview-nav li.ui-state-active, 
+body .ui-tabview.ui-tabview-right .ui-tabview-nav li.ui-state-active {
+    border-bottom: 4px solid #ffffff;
+}
+
+.cs-modal.tabs ::ng-deep .ui-dialog-content .ui-tabview-nav li a {
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    padding-bottom: 3px;
+}
+
+/* overwrite styles */
+body .ui-tabview.ui-tabview-top .ui-tabview-nav li:not(.ui-state-active):not(.ui-state-disabled):hover,
+body .ui-tabview.ui-tabview-bottom .ui-tabview-nav li:not(.ui-state-active):not(.ui-state-disabled):hover,
+body .ui-tabview.ui-tabview-left .ui-tabview-nav li:not(.ui-state-active):not(.ui-state-disabled):hover,
+body .ui-tabview.ui-tabview-right .ui-tabview-nav li:not(.ui-state-active):not(.ui-state-disabled):hover {
+    background-color: transparent;
+}
+
+/* tab panel content */
+.cs-modal.tabs ::ng-deep .ui-dialog-content .ui-tabview-panels .ui-panel-content {
+    background-color: transparent;
+    border: none;
+}
+
+.cs-modal.tabs ::ng-deep .ui-dialog-content .ui-tabview-panels .ui-panel-content ul {
+    list-style-type: none;
+    padding-left: 20px;
+    padding-right: 6px;
+}
+
+.cs-modal.tabs ::ng-deep .ui-dialog-content .ui-tabview-panels .ui-panel-content ul li {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.cs-modal.tabs ::ng-deep .ui-dialog-content .ui-tabview-panels .ui-panel-content ul li .row {
+    display: inline-flex;
+    width: 98%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    vertical-align: top;
+    color: #707070;
+    font-family: 'Roboto', sans-serif;
+}
+
+.cs-modal.tabs ::ng-deep .ui-dialog-content .ui-tabview-panels .ui-panel-content ul li .image {
+    align-self: flex-start;
+    border-radius: 50%;
+    max-width: 40px;
+    max-height: 40px;
+    margin-top: 13px;
+    margin-left: 2px;
+}
+
+.cs-modal.tabs ::ng-deep .ui-dialog-content .ui-tabview-panels .ui-panel-content ul li .image2 {
+    align-self: flex-start;
+    border-radius: 50%;
+    max-width: 40px;
+    max-height: 40px;
+    margin-top: 13px;
+    margin-left: -46px;
+}
+
+
+
+.cs-modal.tabs ::ng-deep .ui-dialog-content .ui-tabview-panels .ui-panel-content ul li .circle-green {
+    width: 10%;
+    padding: 11px 12px;
+    border: 1px solid #a1a1a1;
+    border-radius: 20px;
+    font-size: 9px;
+    background-color: lightgreen;
+    text-align: left;
+}
+
+
+
+.cs-modal.tabs ::ng-deep .ui-dialog-content .ui-tabview-panels .ui-panel-content ul li .image[class*="row-color-"] {
+    width: 40px;
+    height: 40px;
+}
+
+.cs-modal.tabs ::ng-deep .ui-dialog-content .ui-tabview-panels .ui-panel-content ul li .image + .row {
+    width: 90%;
+    padding-left: 4px;
+}
+
+.cs-modal.tabs ::ng-deep .ui-dialog-content .ui-tabview-panels .ui-panel-content ul li .row .name,
+.cs-modal.tabs ::ng-deep .ui-dialog-content .ui-tabview-panels .ui-panel-content ul li .row .date-time {
+    font-weight: 700;
+    padding-left: 5px;
+}
+
+.cs-modal.tabs ::ng-deep .ui-dialog-content .ui-tabview-panels .ui-panel-content ul li .row .name {
+    font-size: 12px;
+}
+
+.cs-modal.tabs ::ng-deep .ui-dialog-content .ui-tabview-panels .ui-panel-content ul li .row .date-time {
+    font-size: 12px;
+    padding-right: 8px;
+}
+
+.cs-modal.tabs ::ng-deep .ui-dialog-content .ui-tabview-panels .ui-panel-content ul li .row .comment {
+    font-size: 12px;
+    background-color: #f5f5f5;
+    padding: 3px 8px;
+    border-radius: 3px;
+    width: 100%;
+    margin-top: 9px;
+    margin-bottom: 5px;
+}
+
+.cs-modal.tabs ::ng-deep .ui-dialog-content .ui-tabview-panels .ui-panel-content ul li .button-wrapper {
+    width: 100%;
+    text-align: right;
+    padding-right: 8px;
+}
+
+.cs-modal.tabs ::ng-deep .ui-dialog-content .ui-tabview-panels .ui-panel-content .reply-wrapper {
+    width: 100%;
+    text-align: right;
+    padding-right: 0px;
+}
+
+.cs-modal.tabs ::ng-deep .ui-dialog-content .ui-tabview-panels .ui-panel-content .reply-wrapper ul {
+    padding-right: 0px;
+}
+
+.cs-modal.tabs ::ng-deep .ui-dialog-content .ui-tabview-panels .ui-panel-content .reply-wrapper ul li {
+    margin-bottom: 10px;
+}
+
+.cs-modal.tabs ::ng-deep .ui-dialog-content .ui-tabview-panels .ui-panel-content .reply-wrapper ul li .row {
+    width: 100%;
+}
+
+.cs-modal.tabs ::ng-deep .ui-dialog-content .ui-tabview-panels .ui-panel-content ul li .button-wrapper .link {
+    font-size: 12px;
+    text-decoration: underline;
+    text-align: right;
+    color: #59a1df;
+    display: inline-block;
+    padding-right: 7px;
+    cursor: pointer;
+}
+
+.cs-modal.tabs ::ng-deep .ui-dialog-content .ui-tabview-panels .ui-panel-content .new-message {
+    padding-right: 6px;
+    padding-left: 20px;
+}
+
+.cs-modal.tabs ::ng-deep .ui-dialog-content .ui-tabview-panels .ui-panel-content .new-reply {
+    width: 100%;
+    padding-right: 0px; 
+    padding-left: 20px;
+}
+
+.cs-modal.tabs ::ng-deep .ui-dialog-content .ui-tabview-panels .ui-panel-content .textarea {
+    width: 90%;
+    margin-right: 20px;
+    margin-left: auto;
+    padding-top: 15px;
+    padding-right: 6px;
+}
+
+.cs-modal.tabs ::ng-deep .ui-dialog-content .ui-tabview-panels .ui-panel-content .textarea .ui-inputtext {
+    height: auto;
+}
+.marketDropdown{
+    display: block;
+    text-align: center;
+}

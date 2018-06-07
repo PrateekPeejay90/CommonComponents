@@ -1,0 +1,9 @@
+<p-autoComplete required="mandatory" [inputStyle]="{'font-size': '12px'}" [style]="{'display': 'inline-flex','width': '100%'}" #timecomponent  
+[appendTo]=appendTo [(ngModel)]="inputValue" [placeholder]=placeholder [suggestions]="data" dropdown=true field="text" [tabindex]="tabindex"
+(onBlur)="onBlur($event)" (onSelect)="onSelect($event)" (completeMethod)="onCompleteMethod($event)">
+    <ng-template let-time pTemplate="item">
+        <div class="ui-helper-clearfix">
+            <div>{{time.text}}</div>
+        </div>
+    </ng-template>
+</p-autoComplete>

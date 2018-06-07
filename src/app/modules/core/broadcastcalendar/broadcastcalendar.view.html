@@ -1,0 +1,116 @@
+<div class="bcCal ui-inputgroup">
+    <input #datebox type="text" (keydown)="validNumberInput($event)" (paste)="validateClipboardValue($event)" [disabled]="disableCalendar()" pInputText 
+    placeholder="{{placeHolderText}}" [(ngModel)]="inputValue" (focusout)="onFocusOut($event)" (change)="flightChange($event)" (blur)="setDateFormat()">
+    <span (click)="disableCalendar() ? '' : onShowCalendarClick()" class="broadcast-calendar-icon">
+        <i class="fa fa-fw fa-calendar triggericon"></i>
+    </span>       
+</div>
+<p-dialog dismissableMask="true" closable="false" appendTo="{{appendTo}}" header="" [(visible)]="showCalendar" modal="true" (onHide)="onCalendarHide()" (onShow)="onCalendarShow()" [styleClass]="'p-dialog-class'" #caldialog>
+    <!-- <p-header>
+        Broadcast Calendar -->
+        <button type="text" style="display:inline-block; width:100px;margin-right: 10px" (click)="prevYear()" iconPos="right" pButton icon="fa-external-link-square" label="Prev year"></button>
+        <button type="text" style="display:inline-block; width:100px" (click)="nextYear()" iconPos="right" pButton icon="fa-external-link-square" label="Next year"></button>
+    <!-- </p-header> -->
+    <!-- <div *ngIf="!isSingleSelect" style="margin-left: 2%;margin-bottom: 2%;"><p-checkbox label="Date as range" [(ngModel)]="dateIsRange" binary="true"></p-checkbox></div> -->
+    <div style="width: 100%;padding:2px">
+        <!-- <h2 style="text-align: center">Broadcast Calendar</h2> -->
+        <div *ngFor="let data of yearArray" style="width: 32.4%;display: inline-block;margin-right: 6px;margin-bottom: 13.5px;">
+            <span style="width: 70px;display: block;margin: 0 auto;margin-bottom: 3%;margin-top: 3%;border: 1px solid;text-align: center;height: 17px;padding-top: 1%;
+            cursor: pointer; font-size: 10px" (click)="onMonthSelect(data, $event)">{{data.month}} {{data.year}}</span>
+            <!-- <h4 style="text-align: center">{{data.month}} {{data.year}}</h4> -->
+            <p-dataTable tableStyleClass="{{fieldName}}_{{data.year}}_{{data.month}}" [tableStyle]="getBackgroundColorForCell(data.oldDays,data.year, data.month)" [value]="data.data">
+                <p-headerColumnGroup>
+                    <p-row>
+                        <p-column *ngIf="!isSingleSelect" header="" [style]="{'background-color':'white', 'border-top':'none', 'border-left':'none', 'width':'17px'}"></p-column>
+                        <p-column [header]="!isSingleSelect ? '' : 'M'" [filter]="!isSingleSelect ? true : false" [style]="{'cursor':'pointer'}">
+                            <ng-template pTemplate="filter" let-col *ngIf="!isSingleSelect">
+                                <span (click)="columnHeaderClick(data,'mon')">M</span>
+                            </ng-template>
+                        </p-column>
+                        <p-column [header]="!isSingleSelect ? '' : 'T'" [filter]="!isSingleSelect ? true : false" [style]="{'cursor':'pointer'}">
+                            <ng-template pTemplate="filter" let-col *ngIf="!isSingleSelect">
+                                <span (click)="columnHeaderClick(data,'tue')">T</span>
+                            </ng-template>
+                        </p-column>
+                        <p-column [header]="!isSingleSelect ? '' : 'W'" [filter]="!isSingleSelect ? true : false" [style]="{'cursor':'pointer'}">
+                            <ng-template pTemplate="filter" let-col *ngIf="!isSingleSelect">
+                                <span (click)="columnHeaderClick(data,'wed')">W</span>
+                            </ng-template>
+                        </p-column>
+                        <p-column [header]="!isSingleSelect ? '' : 'T'" [filter]="!isSingleSelect ? true : false" [style]="{'cursor':'pointer'}">
+                            <ng-template pTemplate="filter" let-col *ngIf="!isSingleSelect">
+                                <span (click)="columnHeaderClick(data,'thu')">T</span>
+                            </ng-template>
+                        </p-column>
+                        <p-column [header]="!isSingleSelect ? '' : 'F'" [filter]="!isSingleSelect ? true : false" [style]="{'cursor':'pointer'}">
+                            <ng-template pTemplate="filter" let-col *ngIf="!isSingleSelect">
+                                <span (click)="columnHeaderClick(data,'fri')">F</span>
+                            </ng-template>
+                        </p-column>
+                        <p-column [header]="!isSingleSelect ? '' : 'S'" [filter]="!isSingleSelect ? true : false" [style]="{'cursor':'pointer'}">
+                            <ng-template pTemplate="filter" let-col *ngIf="!isSingleSelect">
+                                <span (click)="columnHeaderClick(data,'sat')">S</span>
+                            </ng-template>
+                        </p-column>
+                        <p-column [header]="!isSingleSelect ? '' : 'S'" [filter]="!isSingleSelect ? true : false" [style]="{'cursor':'pointer'}">
+                            <ng-template pTemplate="filter" let-col *ngIf="!isSingleSelect">
+                                <span (click)="columnHeaderClick(data,'sun')">S</span>
+                            </ng-template>
+                        </p-column>
+                    </p-row>
+                </p-headerColumnGroup>
+                <p-column *ngIf="!isSingleSelect" [style]="{'cursor':'pointer','text-align':'center', 'width':'17px'}" field="">
+                    <ng-template let-col let-val="rowData" let-ri="rowIndex" pTemplate="body">
+                        <span (click)="onRowSelectClick($event)" style="display: block;width:15px;height:13px;background:lightgray;cursor:pointer;border-radius:3px" [id]="rowButtonId(data, ri)"></span>
+                    </ng-template>
+                </p-column>
+                <p-column [style]="{'cursor':'pointer','text-align':'center'}" field="mon">
+                    <ng-template let-col let-val="rowData" let-ri="rowIndex" pTemplate="body">
+                        <span (mouseenter)="onCellHover($event)" (click)="onDateSelect($event)" style="display:block" [style.color]="getCellStyle(data.year,data.month, val[col.field], ri)" [style.backgroundColor]="getCellStyleForHiatus(data.year,data.month, val[col.field], ri)" [id]="getCellId(data.year,data.month,'mon',val[col.field], ri)">{{val[col.field]}}</span>
+                    </ng-template>
+                </p-column>
+                <p-column [style]="{'cursor':'pointer','text-align':'center'}" field="tue">
+                    <ng-template let-col let-val="rowData" let-ri="rowIndex" pTemplate="body">
+                        <span (mouseenter)="onCellHover($event)" (click)="onDateSelect($event)" style="display:block" [style.color]="getCellStyle(data.year,data.month, val[col.field], ri)" [style.backgroundColor]="getCellStyleForHiatus(data.year,data.month, val[col.field], ri)" [id]="getCellId(data.year,data.month,'tue',val[col.field], ri)">{{val[col.field]}}</span>
+                    </ng-template>
+                </p-column>
+                <p-column [style]="{'cursor':'pointer','text-align':'center'}" field="wed">
+                    <ng-template let-col let-val="rowData" let-ri="rowIndex" pTemplate="body">
+                        <span (mouseenter)="onCellHover($event)" (click)="onDateSelect($event)" style="display:block" [style.color]="getCellStyle(data.year,data.month, val[col.field], ri)" [style.backgroundColor]="getCellStyleForHiatus(data.year,data.month, val[col.field], ri)" [id]="getCellId(data.year,data.month,'wed',val[col.field], ri)">{{val[col.field]}}</span>
+                    </ng-template>
+                </p-column>
+                <p-column [style]="{'cursor':'pointer','text-align':'center'}" field="thu">
+                    <ng-template let-col let-val="rowData" let-ri="rowIndex" pTemplate="body">
+                        <span (mouseenter)="onCellHover($event)" (click)="onDateSelect($event)" style="display:block" [style.color]="getCellStyle(data.year,data.month, val[col.field], ri)" [style.backgroundColor]="getCellStyleForHiatus(data.year,data.month, val[col.field], ri)" [id]="getCellId(data.year,data.month,'thu',val[col.field], ri)">{{val[col.field]}}</span>
+                    </ng-template>
+                </p-column>
+                <p-column [style]="{'cursor':'pointer','text-align':'center'}" field="fri">
+                    <ng-template let-col let-val="rowData" let-ri="rowIndex" pTemplate="body">
+                        <span (mouseenter)="onCellHover($event)" (click)="onDateSelect($event)" style="display:block" [style.color]="getCellStyle(data.year,data.month, val[col.field], ri)" [style.backgroundColor]="getCellStyleForHiatus(data.year,data.month, val[col.field], ri)" [id]="getCellId(data.year,data.month,'fri',val[col.field], ri)">{{val[col.field]}}</span>
+                    </ng-template>
+                </p-column>
+                <p-column [style]="{'cursor':'pointer','text-align':'center'}" field="sat">
+                    <ng-template let-col let-val="rowData" let-ri="rowIndex" pTemplate="body">
+                        <span (mouseenter)="onCellHover($event)" (click)="onDateSelect($event)" style="display:block" [style.color]="getCellStyle(data.year,data.month, val[col.field], ri)" [style.backgroundColor]="getCellStyleForHiatus(data.year,data.month, val[col.field], ri)" [id]="getCellId(data.year,data.month,'sat',val[col.field], ri)">{{val[col.field]}}</span>
+                    </ng-template>
+                </p-column>
+                <p-column [style]="{'cursor':'pointer','text-align':'center'}" field="sun">
+                    <ng-template let-col let-val="rowData" let-ri="rowIndex" pTemplate="body">
+                        <span (mouseenter)="onCellHover($event)" (click)="onDateSelect($event)" style="display:block" [style.color]="getCellStyle(data.year,data.month, val[col.field], ri)" [style.backgroundColor]="getCellStyleForHiatus(data.year,data.month, val[col.field], ri)" [id]="getCellId(data.year,data.month,'sun',val[col.field], ri)">{{val[col.field]}}</span>
+                    </ng-template>
+                </p-column>
+            </p-dataTable>
+        </div>
+    </div>
+</p-dialog>
+<p-confirmDialog icon="fa fa-question-circle" width="425"></p-confirmDialog>
+<div [style.visibility]="showClearAll()" (click)="onClearClick()" class="item-close"></div>
+<p-dialog appendTo="body" [(visible)]="invalidDate" modal=true [responsive]="true">
+    <p-header>
+        Invalid Date
+    </p-header>
+    <p>You have entered an incorrect date format, please try again.</p>
+    <p-footer>
+        <button type="button" pButton icon="fa-check" (click)="invalidDate=false" label="OK"></button>
+    </p-footer>
+</p-dialog>

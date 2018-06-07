@@ -1,0 +1,12 @@
+<p-multiSelect [ngClass]="{'mandatory': filterAttribute.isMandatory}" [maxSelectedLabels]="filterAttribute.maxSelected"  
+	[disabled]="filterAttribute.disabled"  #multiSelectItem [panelStyle]="{minWidth:'12em',width:'100%'}" positionStyle="top" [defaultLabel]="filterAttribute.attributeName" 
+	(onPanelHide)="onMultiSelectBlur(multiSelectItem)" (onChange)="onMultiselectChange($event)" [filter]="filterAttribute.filter" [resetFilterOnHide]="filterAttribute.filter" 
+    [options]="filterAttribute.dataArray" [showToggleAll]="true" [(ngModel)]="selectedItems" (onChange)="onChange($event)" [required]="filterAttribute.isMandatory">
+   	<ng-template let-val let-i="index" pTemplate="item">
+       <div #ele id="ele_{{val.value}}" style="display:inline-block">{{ val.label }}</div>
+   </ng-template>
+</p-multiSelect>
+<div [style.visibility]="showCloseAll()" (click)="onCloseAllClick()" class="item-close"></div>
+
+
+

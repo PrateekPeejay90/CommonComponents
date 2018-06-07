@@ -1,0 +1,23 @@
+<div *ngIf="confirmPopupData.show" class="global-confirm-popup">
+    <div class="global-confirm-popup-overlay"></div>
+    <div class="global-confirm-popup-body">
+        <div class="global-confirm-popup-title">
+            {{confirmPopupData.title}}
+            <div class="fa fa-close" (click)="noClick()"></div>
+        </div>
+        <div class="global-confirm-popup-desc">
+            <div class="fa fa-question-circle"></div>
+            {{confirmPopupData.desc}}
+        </div>
+        <div class="global-confirm-popup-buttons">
+            <div class="global-confirm-popup-yes-button popup-buttons" (click)="yesClick()" >
+                <div class="fa fa-check"></div>
+                {{confirmPopupData.yesButtonLabel}}
+            </div>
+            <div class="global-confirm-popup-no-button popup-buttons" (click)="noClick()">
+                <div class="fa fa-close"></div>
+                {{confirmPopupData.noButtonLabel}}
+            </div>
+        </div>
+    </div>
+</div>

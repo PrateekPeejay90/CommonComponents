@@ -1,0 +1,88 @@
+<div class="ui-g cs-modal tabs">
+    <div class="ui-g-12">
+        <p-dialog header="Comments" [style]="{'position':'fixed','left':'50%','top':'50%'}" styleClass="ui-confirmdialog" [width]="600"  [(visible)]="commentsToggler" [responsive]="true" [modal]="true" (onHide)="hide($event)" >
+            <ng-container *ngIf="commentsAttributes.hasOwnProperty('tabConfig') ; else simplecomments">
+                <p-tabView (onChange)="onTabChange($event)">
+                    <p-tabPanel *ngFor="let tab of commentsAttributes.tabConfig;let i = index;" header="{{tab.tabDisplayName}}">
+                        <div class="marketDropdown" *ngIf="commentsAttributes.showMarkets">
+                            <span>
+                                <strong>Market</strong>
+                            </span>
+                            <p-dropdown [style]="{'width':'25%'}" [options]="commentsAttributes.markets" [(ngModel)]="selectedCity" placeholder="{{selectedCity}}" optionLabel="name" (onChange)="onDropdownChange($event)"></p-dropdown>
+                        </div>
+                        <div class="ui-panel-content ui-widget-content">
+                            <div class="cap-height">
+                                <ul *ngFor="let comment of sortComments(tab.threads) ; let j = index;">
+                                    <li class="clearfix message-from">
+                                        <div class="image">
+                                            <span class="circle-green">{{comment.initials}}</span>
+                                        </div>
+                                        <div class="row">                                               
+                                                <div *ngIf="tab.showMetaData" class="name">{{comment.author}}</div>
+                                                <div *ngIf="tab.showMetaData" class="date-time">{{comment.updatedTime | date:'MM/dd/yyy hh:mm:ss a':'UTC'}}</div>
+                                                <div class="comment" *ngIf="!contenteditable" style="overflow: hidden;overflow-wrap: break-word;" >{{comment.threadName}}</div>
+                                                <div class="comment" id="edit2_{{comment.threadId}}"  *ngIf="contenteditable" contenteditable="true" style="background-color:#fff;" value="">                                                   
+                                                  <input type="text" (keyup)="commentThreadHandler($event)" value="{{comment.threadName}}"style="border:none; width:100%;">
+                                                </div>
+
+                                                <div class="button-wrapper" id="buttons_{{comment.threadId}}" style="display:block;">
+                                                    
+                                                    <div class="link" id="showAll_{{comment.threadId}}" *ngIf="comment.notesCount > 2" (click)="showAllReplies($event, comment.threadId)">Show All</div>
+
+                                                    <div class="link" id="reply_{{comment.threadId}}" *ngIf="!saveEnable && tab.canReply && comment.replies && comment.replies.length===0" (click)="onReply($event)">Reply</div>
+                                                    <!--<div class="link" *ngIf="!saveEnable && tab.canDelete">Delete</div>-->
+
+                                                    <div class="link" id="edit_{{comment.threadId}}" *ngIf="!saveEnable && tab.canEdit" (click)="onEdit($event)">Edit</div>
+                                                    <div class="link" id="cancel_{{comment.threadName}}" *ngIf="contenteditable" contenteditable="false" (click)="onCancel($event)">Cancel</div>
+                                                    <div class="link" id="save_{{comment.threadName}}" *ngIf="saveEnable" (click)="onSave($event)">Save</div>
+                                                    
+                                                </div>
+                                                <div class="reply-wrapper" >
+                                                    <ul *ngFor="let note of comment.replies">
+                                                        <li class="clearfix message-from">
+                                                            <div class="image2">
+                                                                <span class="circle-green">{{comment.initials}}</span>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div *ngIf="tab.showMetaData" class="name">{{note.author}}</div>
+                                                                <div *ngIf="tab.showMetaData" class="date-time">{{note.updatedTime | date:'MM/dd/yyy hh:mm:ss a':'UTC'}}</div>
+                                                                <div class="comment">{{note.note}}</div>
+                                                            </div>
+                                                        </li>    
+                                                    </ul>
+                                                    <div class="button-wrapper" id="button_{{comment.threadId}}" style="display:block;">
+                                                        <div class="link" id="rep_{{comment.threadId}}" *ngIf="comment.notesCount > 1" (click)="onReply($event, comment.threadId)">Reply</div>
+                                                    </div>
+                                                </div>
+                                                <div class="new-reply" id="textarea_{{comment.threadId}}" style="display:none;">
+                                                    <div class="message-input textarea" style="width:100%;">
+                                                        <textarea pInputTextarea rows="2" cols="30" maxlength="255" ref-replytextarea [(ngModel)]="textValue"></textarea>
+                                                    </div>
+                                                    <div class="addReplyBtn" align="right">
+                                                        <button type="button" pButton id="replycancel_{{comment.threadId}}" label="Cancel" (click)="onCancelReply($event)"></button>
+                                                        <button type="button" pButton id="replyadd_{{comment.threadId}}" label="Add Reply" (click)="addReply($event,replytextarea.value)"></button>
+                                                    </div>
+                                                </div>                                           
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div *ngIf="tab.canAdd" class="new-message">
+                                <div class="message-input textarea">
+                                    <textarea pInputTextarea rows="2" cols="30" maxlength="255" ref-textarea [(ngModel)]="commentValue" placeholder="Add a comment..."></textarea>
+                                </div>
+                            
+                                <div class="ui-dialog-footer ui-widget-content">
+                                    <button type="button" pButton label="Add {{tab.tabDisplayName}} Comment" (click)="addCommentDescription(tab,textarea.value)"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </p-tabPanel>
+                </p-tabView>
+            </ng-container>
+            <ng-template #simplecomments>
+                <span>show comments with reply</span>
+            </ng-template>
+        </p-dialog>
+    </div>
+</div>

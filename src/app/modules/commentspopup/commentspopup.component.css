@@ -1,0 +1,234 @@
+/* .ui-multiselect, .ui-inputtext {
+    width: 100%;
+} */
+.ui-dialog .ui-dialog-titlebar {
+    padding: 1em;
+    background:ffffff;
+    text-align:center;  
+}
+.custom.ui-button {
+    color: #337ab7;
+    background-color: #DCDCDC;
+    border: 1px solid transparent;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+.custom.ui-button:enabled:hover {
+    background-color: #DCDCDC;}
+
+.custom.ui-button:enabled:focus {   
+    background-color: #DCDCDC;}
+
+.circle-green {
+    width: 10%;
+    padding: 7px 14px;
+    border: 1px solid #a1a1a1;
+    border-radius: 40px;
+    font-size: 9px;
+    background-color: lightgreen;
+    text-align: left;
+}
+
+.circle-content{
+    margin-left: -5px;}
+
+body .ui-button {
+    color: #ffffff;
+    background-color: #337ab7;
+    border: 1px solid transparent;
+    font-size: 12px; 
+    border-radius: 4px;
+}
+
+p .ui-widget-content {
+    background-color: #DCDCDC;
+    border: 1px solid #dddddd;
+    /* border-radius: 8px; */
+}
+
+p .ui-widget-header {
+    background-color: #f5f5f5;
+    color: #337ab7;
+    border: 1px solid #dddddd;
+    font-weight: bold;
+}
+
+pre {
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+#divOne {
+    position:relative;
+    top:30px;
+}
+
+.addReplyBtn .ui-button.ui-button-text-only .ui-button-text {
+    padding: 0.25em 0.857em !important;
+    background-color: #59a1df;
+}
+
+.dialog-class{
+    width: 50%;
+    height: 90%;
+    /* border-radius: 12px; */
+}
+
+.username-class{
+    font-weight:bold;
+    font-size:10px;
+}
+.edit-delete-reply{
+    float: right;}
+
+.ui-button-text .ui-clickable{
+    margin-left: 32%;}
+
+.add-comment{
+    bottom: 10px;}
+
+.reply-class{
+    position:relative; 
+    left:520px; 
+    clear:both;
+}
+
+.edit-class{
+    white-space:pre-wrap; 
+    word-wrap:break-word;
+    padding: 5px;
+}
+
+.each-reply {
+    margin: 10px 3px;
+    background-color: #E6E6E6;
+    color: #707070;
+    padding: 4px;
+}
+
+.comment-class{
+    width:555px;}
+
+.reply-description{
+    float: right; 
+    width: 510px;
+}
+.marketDropdown {
+    width: 100%;
+    text-align: center;
+}
+.ui-dialog .ui-dialog-content {
+    position: relative;
+    border: 0;
+    padding: .5em .75em;
+    background: 0;
+    overflow: hidden !important;
+    zoom: 1;
+}
+.comments-container {
+    height: 300px; 
+    padding:10px;
+    overflow-y: auto;
+    overflow-x: hidden; 
+}
+
+p .ui-dialog .ui-dialog-content {
+    padding: 1.071em;
+    padding-top: 0px;
+}
+    
+p .ui-dialog {
+    border-radius: 12PX;
+}
+p .head-style .ui-tabview.ui-tabview-top .ui-tabview-nav li
+{
+    /* display:table; */
+    margin-left: 10%;
+
+}
+
+.header-nav {
+    background-color: #469ee2;
+}
+p .ui-tabview.ui-tabview-top .ui-tabview-nav {
+    padding: 0;
+    border: 0 none;
+    background:#469ee2;
+    -moz-border-radius: 5px 5px;
+    -webkit-border-radius: 5px 5px;
+    border-radius: 5px 5px;
+}
+
+p .ui-tabview.ui-tabview-top .ui-tabview-nav li {
+    position: static;
+    margin: 0;
+    box-sizing: border-box;
+    background: #469ee2;
+    border: none;
+}
+p .ui-tabview.ui-tabview-top .ui-tabview-nav li a {
+    background-color: #469ee2;
+}
+
+p .ui-tabview.ui-tabview-top .ui-tabview-nav li :active {
+    border: 0px;
+}
+p .ui-tabview.ui-tabview-top .ui-tabview-nav li :hover {
+    border: 0px;
+}
+p .ui-dialog .ui-dialog-titlebar {
+    padding: 1.5em;
+    border-radius: 9px 9px 0px 0px;;
+    background-color: #fff;
+    color: #469ee2;
+}
+p .ui-dialog .ui-dialog-content {
+    padding: 0px;
+}
+p .ui-tabview.ui-tabview-top .ui-tabview-nav {
+    border-radius: 0px;
+    padding: 5px 0px;
+}
+ .dropdow-text {
+    vertical-align: middle;
+    padding-right: 5px;
+ }
+ .addReplyBtn button {
+    margin-top: 6px;
+    margin-left: 10px;
+    float: right;
+ }
+ .addReplyBtn button :first-child {
+     margin-right: 5px;
+ }
+ .addReplyBtn .ui-button {
+    background-color: #59a1df;
+ }
+ .addReplyBtn .ui-button:enabled:hover {
+    background-color: #59a1df;
+ }
+ 
+ .reply-class .ui-button-text {
+    padding: 0.25em 5.857em !important;
+    text-decoration: underline;
+    color: #59a1df;
+    font-weight: bold;
+}
+
+.comment-popup.hide-header .ui-tabview-nav.ui-widget-header{
+    display:none;
+}
+.ui-panel-content.ui-widget-content .comment {
+    overflow: hidden;
+    overflow-wrap: break-word;
+}
+.showAllLink a span{
+    text-decoration: underline;
+}
+
+/* #tblComments tr:first-child{
+    background:red;
+} */

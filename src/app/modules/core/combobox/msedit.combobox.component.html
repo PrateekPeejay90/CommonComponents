@@ -1,0 +1,59 @@
+<div class="ra-combobox" [ngClass]="{active: openMenu}">
+        <div class="input-container">
+            <input #searchbox class="ui-inputtext ui-corner-all ui-state-default ui-widget" [ngClass]="{placeholder : !openMenu, disabled: disabled}" type="text" (input)="onSearchChange()"  [(ngModel)]="keyword"
+                [pTooltip]="showTooltip ? tooltip : ''" [escape]="false" tooltipPosition="right"
+                [disabled]="disabled" (keydown)="topScrollOption($event)" (click)="onSearchboxFocus(false)" (focus)="!itemsLoading && onSearchboxFocus(true)">
+            <span class="fa fa-fw fa-caret-down combo-icon down-arrow" (click)="!disabled && onSearchboxFocus(false)"></span>
+            <span class="fa fa-fw fa-times combo-icon remove-icon"
+                *ngIf="!disabled && searchSelectedCount" (click)="unselectAll();updatePlaceholder(true);"></span>
+            <span *ngIf="!keyword" (click)="!disabled && onSearchboxFocus(true)" class="placeholder" pTooltip="{{showTooltip ? tooltip : ''}}"
+                [ngClass]="{mandatory: mandatory && !openMenu}" attr.data-placeholder="{{placeholder || displayName}}"></span>
+    
+        </div>
+        <div #dropmenu class="drop-menu shadow" [ngClass]="{show: openMenu}">
+            <div class="menu-section all-check" style="cursor:pointer;" (click)="isAllCheck=!isAllCheck;onAllOptionSelect()" *ngIf="searchResult.length>0" >
+                <div class="ui-chkbox ui-widget" >
+                    <div class="ui-helper-hidden-accessible">
+                        <input type="checkbox" readonly="readonly" (keydown)="allScrollOption($event, option, isLast)" #allCheckbox [checked]="isAllCheck" tabindex="-1">
+                    </div>
+                    <div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default" [ngClass]="{'ui-state-focus' : isAllFocused, 'ui-state-active':isAllCheck || (searchSelectedCount > 0 && searchSelectedCount < searchResult.length)}" (click)="$event.stopPropagation();isAllCheck=!isAllCheck;onAllOptionSelect()">
+                        <span class="ui-chkbox-icon ui-clickable" [ngClass]="{'fa':true, 'fa-check':isAllCheck,'fa-minus':(searchSelectedCount > 0 && searchSelectedCount < searchResult.length)}"></span>
+                    </div>
+                </div>
+                <span style="margin:2px 0 0 5px;">All</span>
+                <a *ngIf="allowNewOptions" (click)="chooseNewOptions()">Custom</a>
+            </div>
+            <div class="menu-section" *ngIf="!virtualScroll">
+                <loading-indicator [labelColor]="'#292B2C'" [isShow]="itemsLoading" [message]="'Loading data..'"></loading-indicator>
+                <div *ngIf="error" class="error">{{ error.error || error || error.message }}</div>
+                <ul class="check-options" *ngIf="!error && !itemsLoading"
+                [ngClass]="{'inner-shadow': innerShadow}">
+                <li #valueCheckboxes *ngFor="let option of options| searchKeyword:'label': keyword"
+                 [ngClass]="{group: option.isGroup, 'last-group': option.isLastGroupOption}" 
+                 (keydown)="scrollOption($event, option,false)" (click)="option.selected = !option.selected;onOptionSelect()">
+                        <p-checkbox *ngIf="!option.processing" name="option" tabindex="-1"
+                        value="{{option.value}}" styleClass="checkbox" [(ngModel)]="option.selected"
+                        binary="true" (click)="$event.stopPropagation()" (onChange)="onOptionSelect()" class ="focus-option"></p-checkbox>
+                        <span [ngStyle]="{'font-weight':option.isGroup?'bold':'normal'}">{{ option.label }}</span>
+                        <loading-indicator [isShow]="option.processing" [message]="option.label"></loading-indicator>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu-section" *ngIf="virtualScroll">
+                <ul infinite-scroll [lastIndex]="options.length" [totalCount]="totalOptions" [pageSize]="pageSize"
+                (change)="onScroll($event)" class="check-options">
+                    <li *ngFor="let option of options;last as isLast" class="child" 
+                        (keydown)="scrollOption($event, option, isLast)" (click)="option.selected = !option.selected;onOptionSelect()">
+                        <p-checkbox name="option" value="{{option.value}}" styleClass="checkbox" tabindex="-1"
+                        [(ngModel)]="option.selected" binary="true" (click)="$event.stopPropagation()" (onChange)="onOptionSelect()">
+                        </p-checkbox>
+                        <span [ngStyle]="{'font-weight':option.isGroup?'bold':'normal'}">{{ option.label }}</span>
+                    </li>
+                    <loading-indicator [isShow]="itemsLoading" [message]="scrollLoadingMessage()"></loading-indicator>
+                    <div *ngIf="error" class="error">{{ error.error || error || error.message }}</div>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    

@@ -1,0 +1,70 @@
+<div style="width: 100%; padding: 0px;">
+	<div class="bSelectHeading">
+
+		<op-treeTable [value]="files" [columns]="cols" [paginator]=true [pageSize]="10" [totalRecords]="30" [lazy]=true [loading]=loading
+		 [styleClass]="tree" (onNodeExpand)="loadNode($event)" (onSelected)="onSelectCheckBox($event)" (lazyLoad)="onLazyLoad($event)"
+		 selectionMode="checkbox" [(selection)]="selectedFiles" > 
+			<ng-template pTemplate="caption">
+				<app-topfilter [filterStyle]="" [filterStyleClass]="filterStyleClass" [filterAttributes]="selectBookFilter" [sortBy]="sortBy"
+				 (textChanged)="onTextChanged($event)" (dateChanged)="onDateChanged($event)" (multiBlur)="onMultiChange($event)" (optionChanged)="onOptionChanged($event)"
+				 (selChange)="onDropdownChange($event)" (bcDaterangeChange)="onBcDaterangeChange($event)" (daterangeChange)="onDaterangeChange($event)"
+				 (checkBoxChange)="onCheckboxChange($event)" (showMoreClick)="onShowMoreClick($event)" (daysAndTimeChanged)="onDaysAndTimeFilterChanged($event)"
+				 (daysChanged)="onDaysFilterChanged($event)" (timeChanged)="onTimeFilterChanged($event)" [canShowClearButton]="true" (clearAllFilters)="onClearAllFilters($event)"
+				 #filterPanel></app-topfilter>
+			</ng-template>
+			<ng-template pTemplate="colgroup" let-columns>
+				<colgroup>
+					<col style="width:180px;border:1px solid #e6e6e6">
+					<col style="width:130px;border:1px solid #e6e6e6">
+					<col style="width:132px;border:1px solid #e6e6e6">
+					<col style="width:131px;border:1px solid #e6e6e6">
+					<col style="width:130px;border:1px solid #e6e6e6">
+					<col style="width:130px;border:1px solid #e6e6e6">
+				</colgroup>
+			</ng-template>
+			<ng-template pTemplate="childcolgroup" let-columns>
+				<colgroup>
+					<col style="width:180px;border:1px solid #e6e6e6">
+					<col style="width:130px;border:1px solid #e6e6e6">
+					<col style="width:132px;border:1px solid #e6e6e6">
+					<col style="width:131px;border:1px solid #e6e6e6">
+					<col style="width:130px;border:1px solid #e6e6e6">
+					<col style="width:130px;border:1px solid #e6e6e6">
+				</colgroup>
+			</ng-template>
+			<ng-template pTemplate="header" let-columns>
+				<tr>
+					<th class="bSelectHeader" *ngFor="let col of columns">
+					{{col.header}}
+					</th>
+				</tr>
+			</ng-template>
+			<ng-template pTemplate="body" let-rowData let-columns="columns" let-node="node" let-level="level" let-rowIndex="rowIdx">
+				<td>
+					<opTreeRowExpand [node]="node" [level]="level"></opTreeRowExpand>
+					<span>{{rowData.bookName}}</span>
+				</td>
+				<td>{{rowData.ratingStreamValue}}</td>
+				<td>{{rowData.markets[0].name}}</td>
+				<td>{{rowData.bookType}}</td>
+				<td>
+					{{rowData.lastUpdatedDate | date:'dd/MM/yyyy HH:mm a '}}
+				</td>
+				<!-- *ngIf= "statusColumn" -->
+				<td *ngIf="statusColumn">
+					<div [ngClass]="{'draftStatusStyle': rowData.status =='Draft', 'publishedStatusStyle':rowData.status =='Published', 'default-Value':rowData.status =='Multiple' }">{{rowData.status}}</div>
+				</td>
+			</ng-template>
+			<ng-template pTemplate="footer" let-cols>
+				<tr>
+					<!-- <td></td>
+					<td></td>
+					<td></td>
+					<td></td> -->
+				</tr>
+			</ng-template>
+		</op-treeTable>
+
+
+	</div>
+</div>

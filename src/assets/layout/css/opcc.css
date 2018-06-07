@@ -1,0 +1,44 @@
+body {
+    font-size: 12px;
+    font-family: "Roboto", sans-serif;
+    background-color: #F8F8F7;
+}
+
+.mandatory .ui-multiselect .ui-multiselect-label:before {
+	content: '*';
+    color: red;
+    font-weight: bold;
+    font-size: 1em;
+    margin-right: 5px;
+}
+
+.item-close {
+	display: inline-block;
+	z-index: 100;
+	position: absolute;
+	cursor: pointer;
+	width: 12px;
+    height: 12px;
+    top: -7px;
+    right: 20px;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=85)";
+    filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=85)";
+    opacity: 0.85;
+    font: 12px/1 FontAwesome;
+    color: #919191;
+}
+
+.item-close:before {
+	content: "\f00d";
+}
+
+body .ui-multiselect, .ui-inputtext {
+	width: 85%;
+}
+
+body .ui-multiselect input.ui-multiselect-label:focus.ui-inputtext,
+body .ui-multiselect input.ui-multiselect-label:hover.ui-inputtext {
+    border: 0 none; }
+    
+
+

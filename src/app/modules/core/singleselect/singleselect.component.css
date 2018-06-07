@@ -1,0 +1,25 @@
+.ddStyle > div {
+	width: 100% !important;
+}
+
+.ui-dropdown .ui-dropdown-clear-icon {
+	right: 2em;
+    margin-top: -.6em;
+    color: #919191;
+    font-size: inherit;
+    position: absolute;
+    top: 50%;
+    height: 1em;
+}
+
+.ddStyle .ui-inputtext {
+	font-size: 12px;
+	height: 22px;
+}
+
+.selected .ui-inputtext,.selected .ui-dropdown-trigger  {
+    background-color: aliceblue !important;
+    color: #898989;
+}
+
+

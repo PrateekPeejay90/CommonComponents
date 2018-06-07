@@ -1,0 +1,89 @@
+/*
+ 
+ .custom-treetable thead tr {
+    display: block;
+}
+
+.custom-treetable thead th {
+	background-color: inherit;
+	color: inherit;
+	width: 1%;
+}
+
+.custom-treetable tbody {
+	display:block;
+	overflow-y:auto;
+}
+
+.custom-treetable tbody tr {
+	display: block;
+}*/
+.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.override-paginator .ui-paginator-top .ui-paginator-element{
+  font : unset;
+}
+body .override-paginator .ui-paginator .ui-paginator-first:before, body .override-paginator .ui-paginator .ui-paginator-prev:before,
+body .override-paginator .ui-paginator .ui-paginator-next:before, body .override-paginator .ui-paginator .ui-paginator-last:before
+{
+  content: unset;
+}
+body .override-paginator .ui-paginator .ui-paginator-first span, body .override-paginator .ui-paginator .ui-paginator-prev span,
+body .override-paginator .ui-paginator .ui-paginator-next span, body .override-paginator .ui-paginator .ui-paginator-last span
+{
+  display: inline-block;
+  line-height: 2em;
+}
+body .override-paginator .ui-paginator .ui-paginator-prev {
+  transform: unset;
+}
+.ui-treetable-emptymessage {
+	border: none;
+}
+
+.ui-treetable-emptymessage-row {
+	border-top: 0;
+}
+
+.ui-treetable-scrollable-body {
+	overflow: auto;
+	position: relative;
+}
+
+.ui-treetable-virtual-table {
+	position: absolute;
+}
+
+.custom-treetable .ui-treetable-scrollable-header {
+	border: 0;
+	overflow: hidden;
+}
+
+@media (max-width: 1366px) {
+  .ui-treetable-scrollable-body {
+      max-height:41.7vh !important;
+      min-height:10vh;
+  }
+
+  .ui-treetable-scrollable-header, .ui-treetable-scrollable-body,  .ui-treetable-scrollable-footer {
+    min-width: 99.9vw;
+    max-width: 100vw;
+  }
+}
+
+@media (min-width:1367px) and (max-width: 1920px) {
+  .ui-treetable-scrollable-body {
+    max-height:62.5vh !important;
+    min-height:10vh;
+  }
+  .ui-treetable-scrollable-header, .ui-treetable-scrollable-body,  .ui-treetable-scrollable-footer {
+    width: 99.9vw;
+  }
+}
+
+
+
+

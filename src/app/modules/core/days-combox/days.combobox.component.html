@@ -1,0 +1,27 @@
+<div class="days-combobox" [ngClass]="{active: openMenu}">
+    <div class="input-container">
+        <input #searchbox [tabindex]="tabindex" class="ui-inputtext ui-corner-all ui-state-default ui-widget" [ngClass]="{placeholder : !openMenu, disabled: disabled}" type="text" [(ngModel)]="keyword"
+        	[pTooltip]="showTooltip ? tooltip : ''" [escape]="false" tooltipPosition="right"
+        	[disabled]="disabled" (keydown)="scrollOption($event, {},false)" (click)="!itemsLoading && onSearchboxFocus(false)" (focus)="!itemsLoading && onSearchboxFocus(true)">
+        <span class="fa fa-fw fa-caret-down combo-icon down-arrow" (click)="!itemsLoading && onSearchboxFocus(false)"></span>
+        <span class="fa fa-fw fa-times combo-icon remove-icon" [pTooltip]="Clear"
+        	*ngIf="selectedCount" (click)="unselectAll();updatePlaceholder();"></span>
+        <span *ngIf="!keyword" (click)="!disabled && !itemsLoading && onSearchboxFocus(true)" class="placeholder" pTooltip="{{showTooltip ? tooltip : ''}}"
+        	[ngClass]="{mandatory: mandatory && !openMenu}" attr.data-placeholder="{{placeholder || displayName}}"></span>
+    </div>
+    <div #dropmenu class="drop-menu shadow" [ngClass]="{show: openMenu}">
+        <div class="menu-section">
+            <ul class="check-options">
+            <li *ngFor="let option of options| searchKeyword:'label': keyword"
+             [ngClass]="{group: option.isGroup, 'last-group': option.isLastGroupOption}" tabindex="-1"
+             (keydown)="scrollOption($event, option,false)" (click)="option.selected = !option.selected;onOptionSelect(option)">
+                    <p-checkbox *ngIf="!option.processing" name="option" tabindex="-1"
+                    value="{{option.value}}" styleClass="checkbox" [(ngModel)]="option.selected"
+                    binary="true" (click)="$event.stopPropagation()" (onChange)="onOptionSelect(option)" class ="focus-option"></p-checkbox>
+                    <span [ngStyle]="{'font-weight':option.group?'bold':'normal'}">{{ option.label }}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+

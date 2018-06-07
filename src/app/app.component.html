@@ -1,0 +1,126 @@
+<app-topbar></app-topbar>
+<confirm-popup #confirmPopup></confirm-popup>
+<div style="padding: 5px;">
+	<p-button (onClick)="topFilterToggler=!topFilterToggler" label="Top Filter Toggle"></p-button>
+	<p-button (onClick)="sideFilterToggler=!sideFilterToggler" label="Side Filter Toggle"></p-button>
+	<p-button (onClick)="treeToggler=!treeToggler" label="Tree Toggle"></p-button>
+	<p-button (onClick)="commentsToggler=!commentsToggler" label="Comment Popup"></p-button>
+	<p-button (onClick)="showErrorDialog=!showErrorDialog" label="Book Selection" ></p-button>
+	<p-button (onClick)="confirmPopup.show(confirmObj)" label="Confirm Popup" ></p-button>	
+</div>
+<div *ngIf="showErrorDialog">
+	<div style="width: 100%;padding: 5px;">
+		<op-bookselector-dialog (onHide)="onHideErrordialog($event)" (selectedData)="selectedBooks($event)" [statusColumn]="true"></op-bookselector-dialog>	
+	</div>
+</div>
+<div style="width: 100%; padding: 5px;">
+	<div *ngIf="sideFilterToggler" style="display:block; padding: 5px; width: 20%; border:1px solid silver;">
+		<app-filterpanel [filterAttributes]="filterAttributes" (textChanged)="onTextChanged($event)" (dateChanged)="onDateChanged($event)"
+		 (multiBlur)="onMultiChange($event)" (optionChanged)="onOptionChanged($event)" (selChange)="onDropdownChange($event)" (bcDaterangeChange)="onBcDaterangeChange($event)"
+		 (daterangeChange)="onDaterangeChange($event)" (checkBoxChange)="onCheckboxChange($event, fieldName)" (showMoreClick)="onShowMoreClick($event)"
+		 (daysAndTimeChanged)="onDaysAndTimeFilterChanged($event)" (daysChanged)="onDaysFilterChanged($event)" (timeChanged)="onTimeFilterChanged($event)"
+		 (btnClicked)="filterPanelButtonClick($event)" [panelId]="panelId" #sidefilter></app-filterpanel>
+	</div>
+	<div style="display:block;vertical-align: top; box-sizing: border-box;">
+		<div *ngIf="topFilterToggler" style="border: 1px solid #dedede;">
+			<app-topfilter [filterStyle]="" [filterStyleClass]="filterStyleClass" [filterAttributes]="filterAttributes" [showSearchFilter]="true"
+			 [sortBy]="sortBy" (textChanged)="onTextChanged($event)" (dateChanged)="onDateChanged($event)" (multiBlur)="onMultiChange($event)"
+			 (optionChanged)="onOptionChanged($event)" (selChange)="onDropdownChange($event)" (bcDaterangeChange)="onBcDaterangeChange($event)"
+			 (daterangeChange)="onDaterangeChange($event)" (checkBoxChange)="onCheckboxChange($event, fieldName)" (showMoreClick)="onShowMoreClick($event)"
+			 (daysAndTimeChanged)="onDaysAndTimeFilterChanged($event)" (daysChanged)="onDaysFilterChanged($event)" (timeChanged)="onTimeFilterChanged($event)"
+			 [canShowApplyButton]="true" [canShowClearButton]="true" (clearAllFilters)="onClearAllFilters($event)" #filterPanel></app-topfilter>
+		</div>
+
+		<div *ngIf="commentsToggler">
+			<app-commentspopup (onHide)="onHideCommentsToggler($event)" [commentsAttributes]="commentsAttributes"></app-commentspopup>
+		</div>	
+	
+		<div *ngIf="treeToggler" style="display:inline-block;">
+			<op-treeTable [value]="files" [columns]="cols" [paginator]=true [pageSize]="10" [totalRecords]="30" [lazy]=true [loading]=loading
+			 [styleClass]="tree" (onNodeExpand)="loadNode($event)" (lazyLoad)="onLazyLoad($event)">
+				<ng-template pTemplate="colgroup" let-columns>
+					<colgroup>
+						<col style="width:250px;border:1px solid green;">
+						<col style="width:150px;border:1px solid red;">
+						<col style="width:150px;border:1px solid red;">
+						<col style="width:150px;border:1px solid red;">
+						<col style="width:150px;border:1px solid red;">
+						<col style="width:150px;border:1px solid red;">
+						<col style="width:150px;border:1px solid red;">
+						<col style="width:250px;border:1px solid green;">
+						<col style="width:250px;border:1px solid green;">
+						<col style="width:250px">
+					</colgroup>
+				</ng-template>
+				<ng-template pTemplate="childcolgroup" let-columns>
+					<colgroup>
+						<col style="width:249px;border:1px solid green;">
+						<col style="width:150px;border:1px solid red;">
+						<col style="width:150px;border:1px solid red;">
+						<col style="width:150px;border:1px solid red;">
+						<col style="width:150px;border:1px solid red;">
+						<col style="width:150px;border:1px solid red;">
+						<col style="width:150px;border:1px solid red;">
+						<col style="width:250px;border:1px solid green;">
+						<col style="width:250px;border:1px solid green;">
+						<col style="width:250px">
+					</colgroup>
+				</ng-template>
+				<ng-template pTemplate="header">
+					<tr>
+						<th rowspan="2">Name</th>
+						<th rowspan="2">Col1</th>
+						<th rowspan="2">Col2</th>
+						<th rowspan="2">Col3</th>
+						<th rowspan="2">Col4</th>
+						<th rowspan="2">Col5</th>
+						<th rowspan="2">Col6</th>
+						<th colspan="3">Details</th>
+					</tr>
+					<tr>
+						<th>Size</th>
+						<th>Type</th>
+						<th>Print</th>
+					</tr>
+				</ng-template>
+				<ng-template pTemplate="body" let-rowData let-columns="columns" let-node="node" let-level="level" let-rowIndex="rowIdx">
+					<td>
+						<opTreeRowExpand [node]="node" [level]="level"></opTreeRowExpand>
+						<i class="fa fw fa-clock-o"></i>
+						<span>from bTempate-{{rowData.name}}</span>
+					</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>
+						<span>{{columns[7].resolveFieldData ? columns[7].resolveFieldData(rowData,rowIndex,columns[7].field) : rowData.size}}</span>
+					</td>
+					<td>
+						from bTempate-{{rowData.type}}
+					</td>
+					<td>
+						from bTempate-{{rowData.print}}
+					</td>
+				</ng-template>
+				<ng-template pTemplate="footer" let-cols>
+					<tr>
+						<td colspan="7">Total:</td>
+						<td>1000kb</td>
+						<td>Folder</td>
+						<td>30</td>
+					</tr>
+				</ng-template>
+			</op-treeTable>
+			<p>Selected Nodes:
+				<span *ngFor="let file of selectedFiles">{{file.data.name}} </span>
+			</p>
+		</div>
+		<!--  <div style="border:1px solid #dddddd;margin-left:20%;display:inline-block;">
+			<export-component [tenantId]="tenantId" [moduleName]="moduleName"></export-component>
+		</div> -->
+
+	</div>
+</div>

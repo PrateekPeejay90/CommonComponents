@@ -1,0 +1,88 @@
+<div class="daysandtimes-field" [ngClass]="{active: openMenu}">
+	<div class="input-container">
+        <input #searchbox class="ui-inputtext ui-corner-all ui-state-default ui-widget" [ngClass]="{placeholder : !openMenu, disabled: disabled}" type="text" [(ngModel)]="inputValue"
+            [pTooltip]="showTooltip ? tooltip : ''" [escape]="false" tooltipPosition="right"
+            [disabled]="disabled" (click)="!itemsLoading && onSearchboxFocus(false)" (focus)="!itemsLoading && onSearchboxFocus(true)">
+        <span class="down-arrow" (click)="!itemsLoading && onSearchboxFocus(false)">
+            <i class="fa fa-fw fa-calendar triggericon" ></i>
+        </span>
+        <span *ngIf="filterAttribute.hasSelection && canErase" class="fa fa-fw fa-times combo-icon remove-icon" [pTooltip]="Clear"
+            (click)="clearAll();">
+        </span>
+        <!--<span class="down-arrow" *ngIf="(inputvalue.days.length > 0 || inputvalue.startTime !='' || inputvalue.endTime != '')" (click)="unselectAll();updatePlaceholder();">
+            <i class="fa fa-fw fa-times combo-icon"></i>
+        </span>-->
+
+        <span *ngIf="!keyword" (click)="!disabled && !itemsLoading && onSearchboxFocus(true)" class="placeholder" pTooltip="{{showTooltip ? tooltip : ''}}"
+            [ngClass]="{mandatory: mandatory && !openMenu}" attr.data-placeholder="{{placeholder || displayName}}"></span>
+    </div>
+</div>
+
+<p-dialog *ngIf=showDialog [(visible)]="showDialog" styleClass="daysandtimes-dialog" 
+[resizable]="false" header="{{displayName}}" [responsive]="true" 
+[width]=dialogWidth [contentStyle]="{'height': 'auto', 'overflow': 'inherit'}" 
+[closeOnEscape]="false" [modal]="true" appendTo="body" [(closable)]="closable" (onHide)="onDialogHide()" (onShow)="onDialogShow()">
+    <form *ngFor="let item of filterAttribute.items; let itemIdx=index">
+        <!-- <div style="text-align: right; cursor:pointer;">
+            <a target="#" (click)="onClearClick(itemIdx)">Clear</a>
+        </div> -->
+        <div class="ui-g ui-fluid">
+            <div class="ui-g-12 ui-md-5" style="padding:0px; display: flex; width: 35%;">
+                <div class="ui-g-12 ui-md-1" style="color: #707070; margin-bottom: auto; margin-top: auto; width: auto;">
+                    <i class="fa fa-calendar fa-lg"></i>
+                </div>
+                <div class="ui-g-12 ui-md-10" style="padding-left: 0px;padding-right: 0px;">
+                    <app-days-combobox [name]="item.daysAttribute.attributeName" [(ngModel)]="daysValue[itemIdx]" [filterAttribute]="item.daysAttribute" 
+                    [showTooltip]="item.daysAttribute.showTooltip" [mandatory]="item.daysAttribute.mandatory" 
+                    [displayName]="item.daysAttribute.displayName" [dropdownPlaceholder]="''" 
+                    [attributeName]="item.daysAttribute.attributeName" 
+                    [tabindex]="item.daysAttribute.tabindex"
+                    (optionChanged)="item.daysAttribute.optionChanged? item.daysAttribute.optionChanged($event, itemIdx) : onDaysOptionChanged($event, itemIdx)"
+                    (dropdownMenuBlur)="onDaysOptionChanged($event, itemIdx)"></app-days-combobox>
+                </div>
+                <div class="ui-g-12 ui-md-1" style="margin-bottom: auto; margin-top: auto; width: auto;">
+                </div>
+            </div>
+            <div class="ui-g-12 ui-md-7" style="padding:0px; display: flex; width: 65%;">
+                <div class="ui-g-12 ui-md-1" style="color: #707070; margin-bottom: auto; margin-top: auto; width: auto;">
+                    <i class="fa fa-clock-o fa-lg"></i>
+                </div>
+                <div class="ui-g-12 ui-md-5" style="padding-left: 0px; padding-right: 0px;">
+                    <app-timepicker [name]="item.startTimeAttribute.attributeName" 
+                    [(ngModel)]="startTimeValue[itemIdx]" min="06:00 AM" max="06:00 AM" from="startTime" [filterAttribute]="item.startTimeAttribute" 
+                    [mandatory]="item.startTimeAttribute.mandatory" [placeholder]="item.startTimeAttribute.displayName" 
+                    [displayName]="item.startTimeAttribute.displayName" [attributeName]="item.startTimeAttribute.attributeName" 
+                    [tabindex]="item.startTimeAttribute.tabindex"
+                    (optionChanged)="item.startTimeAttribute.optionChanged? item.startTimeAttribute.optionChanged($event, itemIdx) : onTimeSelect($event, itemIdx)"></app-timepicker>
+                </div>
+                <div class="ui-g-12 ui-md-1" style="margin-bottom: auto; margin-top: auto; width: auto;">
+                    <span class="fa fa-lg">to</span>
+                </div>
+                <div class="ui-g-12 ui-md-5" style="padding-left: 0px; padding-right: 0px;">
+                    <app-timepicker [name]="item.endTimeAttribute.attributeName" 
+                    [(ngModel)]="endTimeValue[itemIdx]" from="endTime" [filterAttribute]="item.endTimeAttribute" 
+                    [mandatory]="item.endTimeAttribute.mandatory" [placeholder]="item.endTimeAttribute.displayName" 
+                    [displayName]="item.endTimeAttribute.displayName" [attributeName]="item.endTimeAttribute.attributeName" 
+                    [tabindex]="item.endTimeAttribute.tabindex" [startTime]="startTimeValue[itemIdx]"
+                    (optionChanged)="item.endTimeAttribute.optionChanged? item.endTimeAttribute.optionChanged($event, itemIdx) : onTimeSelect($event, itemIdx)"></app-timepicker>
+                </div>
+                <div *ngIf="canErase" class="ui-g-12 ui-md-1" style="padding: 2px; margin-bottom: auto; margin-top: auto; width: auto; cursor:pointer;">
+                    <i class="fa fas far fa-eraser fa-lg daysandtimes-dialog-actionicon" style="color:#2098D1" title="Clear values" (click)="onClearClick(itemIdx)"></i>
+                </div>
+                <div *ngIf="multiSelect && filterAttribute.items.length > 1" class="ui-g-12 ui-md-1" style="padding: 2px; margin-bottom: auto; margin-top: auto; width: auto; cursor:pointer;">
+                    <i class="fa fas fa-minus-circle fa-lg daysandtimes-dialog-actionicon" style="color:red" title="Remove rotation" (click)="onRemoveItemClick(itemIdx)"></i>
+                </div>
+                <div *ngIf="multiSelect" class="ui-g-12 ui-md-1" style="padding: 2px; margin-bottom: auto; margin-top: auto; width: auto; cursor:pointer;">
+                    <i class="fa fas fa-plus-circle fa-lg daysandtimes-dialog-actionicon" style="color:green" title="Add rotation" (click)="onAddItemClick(itemIdx)"></i>
+                </div>
+            </div>
+            <div>
+                <p-message *ngIf="errorJSON[itemIdx]?errorJSON[itemIdx].sameStartAndEndTime:false" severity="error" text="Start Time cannot be equal to End time."></p-message>
+                <p-message *ngIf="mandatory && errorJSON[itemIdx]?errorJSON[itemIdx].empty:false" severity="error" text="Fields cannot be empty."></p-message>
+            </div>
+        </div>
+    </form>
+    <p-footer>
+        <button type="submit" style="width: 65px;" pButton (click)="onDoneClick()" [disabled]="!isDirty || !isValidData" label="Done"></button>
+    </p-footer>
+</p-dialog>

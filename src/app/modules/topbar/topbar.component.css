@@ -1,0 +1,52 @@
+.topbar {
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    height: 30px;
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  }
+  
+  .topbar .topbar-left {
+      height: 30px;
+      float: left;
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#457fca', endColorStr='#5691c8', gradientType='1');
+  }
+  
+  .topbar .fa-bars{
+      padding:9px 10px;
+      cursor: pointer;
+  }
+  
+  .topbar .topbar-logo {
+      border: 0;
+      width: 30px; 
+      height: 30px;
+      margin-left: 10px;
+  }
+    
+  .topbar .topbar-right {
+      padding: 15px;
+      padding-top: 0px;
+      height: 30px;
+      background-color: rgb(255,255,255);
+      background-image: url(/assets/images/header-bg.jpg),url(./header-bg.jpg);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#457fca', endColorStr='#5691c8', gradientType='1'); 
+  }
+
+  .topbar-logout {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #000;
+    background-color: rgba(255,255,255,0.5);
+    height: 30px;
+    width: 80px;
+    text-align: center;
+    line-height: 30px;
+}
+  
+  

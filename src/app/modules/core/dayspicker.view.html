@@ -1,0 +1,13 @@
+<div>
+    <span class="ui-fluid">
+        <p-autoComplete [(ngModel)]="selectedDays" [dropdown]="true" [suggestions]="filteredDaysMultiple" (completeMethod)="filterDaysMultiple($event)" styleClass="wid100"
+            (onSelect)="selectedDay($event)" (onUnselect)="repopCheckBox($event)" placeholder="Days" autoHighlight=true field="value" [multiple]="true">
+            <ng-template let-day let-data="rowData" pTemplate="item">
+                <div class="ui-helper-clearfix">
+                    <p-checkbox [(ngModel)]="selectedCheckBoxDays" value={{day.value}} (onChange)="onCheckBoxChange($event)" ></p-checkbox>
+                    {{day.name}}
+                </div>
+            </ng-template>
+        </p-autoComplete>
+    </span>
+</div>
